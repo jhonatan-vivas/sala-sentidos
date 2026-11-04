@@ -9,11 +9,9 @@ description: >-
   y quienes aprenden Lengua de Señas Colombiana (LSC) en la UTP.
 lang: es
 
-# IMPORTANTE: si el repositorio se llama distinto, cambia baseurl.
-# Para https://USUARIO.github.io/sala-de-los-sentidos  →  baseurl: "/sala-de-los-sentidos"
 # Para un dominio propio o un repositorio USUARIO.github.io  →  baseurl: ""
-baseurl: "/sala-de-los-sentidos"
-url: "https://USUARIO.github.io"
+baseurl: "/sala-sentidos"
+url: "https://jhonatan-vivas.github.io"
 
 # Colecciones: una clase o una seña = un archivo (fácil de agregar y quitar)
 collections:

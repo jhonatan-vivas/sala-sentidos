@@ -7,15 +7,15 @@
 
 backend:
   name: github
-  repo: USUARIO/sala-de-los-sentidos   # cámbialo por tu usuario/repositorio
+  repo: jhonatan-vivas/sala-sentidos
   branch: main
 
 # Usa los archivos de tu computador en lugar de GitHub (requiere "npx decap-server")
 local_backend: true
 
 locale: es
-site_url: http://localhost:4000/sala-de-los-sentidos/
-display_url: http://localhost:4000/sala-de-los-sentidos/
+site_url: http://localhost:4000/sala-sentidos/
+display_url: http://localhost:4000/sala-sentidos/
 
 media_folder: assets/uploads
 public_folder: /assets/uploads
