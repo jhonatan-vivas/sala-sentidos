@@ -1,0 +1,56 @@
+---
+layout: default
+title: Comunidad ciega
+seccion: ciega
+---
+{%- assign cc = site.data.comunidad_ciega -%}
+<section class="banda banda--clara" aria-labelledby="t-cc">
+  <div class="contenedor">
+    {% include migas.html actual="Comunidad ciega" %}
+  </div>
+  <div class="contenedor angosto pila">
+    <h1 id="t-cc" class="titulo-1">Comunidad ciega</h1>
+    <p class="texto-grande">{{ cc.texto }}</p>
+    <div class="botones">
+      <button type="button" class="boton boton--grande" data-a11y="escuchar" aria-pressed="false">
+        <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M19 5a10 10 0 0 1 0 14"/></svg>
+        Escuchar esta página
+      </button>
+      <a class="boton boton--borde boton--grande" href="#ayuda-lector">Cómo navegar con lector de pantalla</a>
+    </div>
+  </div>
+</section>
+
+<section class="seccion" aria-labelledby="t-recursos">
+  <div class="contenedor angosto pila">
+    <h2 id="t-recursos" class="titulo-2">Recursos</h2>
+    <p class="texto-suave">Cada recurso indica su formato antes del enlace, para que sepas qué vas a abrir.</p>
+    {%- if cc.recursos.size > 0 %}
+    <ul class="lista-recursos">
+      {%- for r in cc.recursos %}
+      <li class="recurso">
+        <span class="recurso__tipo">{{ r.tipo }}{% if r.duracion and r.duracion != "" %} · {{ r.duracion }}{% endif %}</span>
+        <h3 class="titulo-4">{% if r.url and r.url != "" %}<a href="{{ r.url }}" target="_blank" rel="noopener">{{ r.titulo }}<span class="sr"> (abre en otra pestaña)</span></a>{% else %}{{ r.titulo }} <span class="texto-suave">(pendiente)</span>{% endif %}</h3>
+        {%- if r.descripcion and r.descripcion != "" %}<p>{{ r.descripcion }}</p>{% endif %}
+      </li>
+      {%- endfor %}
+    </ul>
+    {%- else %}
+    <p class="aviso">Pronto publicaremos recursos en esta sección.</p>
+    {%- endif %}
+  </div>
+</section>
+
+<section id="ayuda-lector" class="banda banda--oscura seccion" aria-labelledby="t-ayuda">
+  <div class="contenedor angosto pila">
+    <h2 id="t-ayuda" class="titulo-2">Cómo navegar este portal con lector de pantalla</h2>
+    <ul class="lista-grande">
+      <li>Al iniciar cada página, el primer enlace es «Saltar al contenido».</li>
+      <li>Cada página tiene un solo título principal y secciones con encabezados en orden.</li>
+      <li>Todos los botones y enlaces funcionan con teclado: <kbd>Tab</kbd> para avanzar y <kbd>Mayús</kbd> + <kbd>Tab</kbd> para retroceder.</li>
+      <li>Las opciones de accesibilidad (tamaño de letra, contraste y lectura en voz alta) están en el botón redondo de la esquina inferior izquierda.</li>
+      <li>Los videos no se reproducen solos ni tienen sonido automático.</li>
+    </ul>
+    <p>¿Algo no funciona con tu lector? Escríbenos a {{ site.data.sitio.correo }} o visita la Sala.</p>
+  </div>
+</section>

@@ -1,0 +1,14 @@
+{%- comment -%}
+  Acepta un enlace completo de YouTube o solo el ID y deja el ID en la variable yt_id.
+  Uso: {% include yt-id.html valor=page.youtube %}
+{%- endcomment -%}
+{%- assign yt_id = include.valor | default: "" | strip -%}
+{%- if yt_id contains "v=" -%}
+  {%- assign yt_id = yt_id | split: "v=" | last | split: "&" | first -%}
+{%- elsif yt_id contains "youtu.be/" -%}
+  {%- assign yt_id = yt_id | split: "youtu.be/" | last | split: "?" | first -%}
+{%- elsif yt_id contains "/embed/" -%}
+  {%- assign yt_id = yt_id | split: "/embed/" | last | split: "?" | first -%}
+{%- elsif yt_id contains "/shorts/" -%}
+  {%- assign yt_id = yt_id | split: "/shorts/" | last | split: "?" | first -%}
+{%- endif -%}

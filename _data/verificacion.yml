@@ -1,0 +1,15 @@
+# Verificación del servicio de interpretación.
+# El código QR se genera solo a partir del enlace de cada formulario,
+# así el botón y el QR siempre llevan al mismo destino.
+video: ""
+texto: "[Texto en español equivalente al video: qué es el formulario, para qué se usan las respuestas y cuánto tiempo toma.]"
+
+estudiante:
+  url: ""
+  descripcion: Recibiste interpretación en una clase, tutoría o actividad.
+docente:
+  url: ""
+  descripcion: Tuviste intérprete en tu clase o espacio académico.
+
+privacidad: "[Aviso de privacidad y tratamiento de datos definido por la UTP; indicar si las respuestas son anónimas.]"
+plataforma: "[plataforma institucional]"

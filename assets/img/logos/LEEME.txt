@@ -1,0 +1,6 @@
+Reemplaza estos 4 archivos por los logos oficiales CONSERVANDO EL MISMO NOMBRE:
+  logo-utp.svg          logo de la UTP para fondo blanco
+  logo-sala.svg         logo de la Sala para fondo blanco
+  logo-utp-blanco.svg   versión blanca (va sobre el pie de página azul)
+  logo-sala-blanco.svg  versión blanca
+Si tus logos son .png, cambia la extensión en _data/sitio.yml (o desde el panel: Configuración › Datos de la Sala).

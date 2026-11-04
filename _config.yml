@@ -1,0 +1,41 @@
+# ─────────────────────────────────────────────────────────────
+#  Portal Sala de los Sentidos · UTP
+#  Configuración general de Jekyll (GitHub Pages lo compila solo).
+# ─────────────────────────────────────────────────────────────
+
+title: Sala de los Sentidos
+description: >-
+  Información, recursos y servicios para la Comunidad Sorda, la comunidad ciega
+  y quienes aprenden Lengua de Señas Colombiana (LSC) en la UTP.
+lang: es
+
+# IMPORTANTE: si el repositorio se llama distinto, cambia baseurl.
+# Para https://USUARIO.github.io/sala-de-los-sentidos  →  baseurl: "/sala-de-los-sentidos"
+# Para un dominio propio o un repositorio USUARIO.github.io  →  baseurl: ""
+baseurl: "/sala-de-los-sentidos"
+url: "https://USUARIO.github.io"
+
+# Colecciones: una clase o una seña = un archivo (fácil de agregar y quitar)
+collections:
+  clases:
+    output: true
+    permalink: /curso/:name/
+  senas:
+    output: false
+
+defaults:
+  - scope:
+      path: ""
+      type: clases
+    values:
+      layout: clase
+      seccion: curso
+
+markdown: kramdown
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .herramientas

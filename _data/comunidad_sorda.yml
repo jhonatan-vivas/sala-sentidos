@@ -1,0 +1,31 @@
+bienvenida_video: ""
+bienvenida_texto: "[Texto en español equivalente al video: qué encontrarás en esta sección —curiosidades, cultura, historia, podcast— y quién produce los contenidos.]"
+
+categorias:
+  - Curiosidades
+  - Cultura Sorda
+  - Historia
+  - Vida universitaria
+
+videos:
+  - titulo: "[Título del video]"
+    categoria: Curiosidades
+    youtube: ""
+    duracion: ""
+  - titulo: "[Título del video]"
+    categoria: Cultura Sorda
+    youtube: ""
+    duracion: ""
+  - titulo: "[Título del video]"
+    categoria: Historia
+    youtube: ""
+    duracion: ""
+
+podcast:
+  nombre: "[Nombre del podcast]"
+  descripcion: "Conversaciones en video, en LSC y con subtítulos en español."
+  episodios:
+    - titulo: "[Título del episodio]"
+      invitado: "[Invitado/a]"
+      youtube: ""
+      duracion: ""

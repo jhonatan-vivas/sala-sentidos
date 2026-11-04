@@ -1,0 +1,19 @@
+{%- comment -%}
+  Miniatura de YouTube que se convierte en reproductor al hacer clic (carga más rápido
+  que muchos reproductores a la vez). Uso: {% include video-lite.html id=v.youtube titulo=v.titulo %}
+{%- endcomment -%}
+{%- include yt-id.html valor=include.id -%}
+{%- if yt_id != "" -%}
+<button type="button" class="video-lite" data-yt="{{ yt_id }}" data-titulo="{{ include.titulo | escape }}" aria-label="Reproducir: {{ include.titulo | escape }}">
+  <img src="https://i.ytimg.com/vi/{{ yt_id }}/hqdefault.jpg" alt="" loading="lazy">
+  <span class="sello" aria-hidden="true">LSC</span>
+  {%- if include.duracion and include.duracion != "" -%}<span class="video-lite__duracion">{{ include.duracion }}</span>{%- endif -%}
+  <span class="video-lite__play" aria-hidden="true"><svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="10"/><path d="M10 8.5v7l5.5-3.5z" fill="currentColor"/></svg></span>
+</button>
+{%- else -%}
+<div class="video-lite video-lite--pendiente" role="img" aria-label="{{ include.titulo | escape }}: video pendiente">
+  <span class="sello" aria-hidden="true">LSC</span>
+  <span class="video-lite__play" aria-hidden="true"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="10"/><path d="M10 8.5v7l5.5-3.5z" fill="currentColor"/></svg></span>
+  <span class="video__nota">Video pendiente</span>
+</div>
+{%- endif -%}

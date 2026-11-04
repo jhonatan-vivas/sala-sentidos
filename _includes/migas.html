@@ -1,0 +1,9 @@
+{%- comment -%} Ruta de navegación. Uso: {% include migas.html nivel1="Curso de LSC" url1="/curso/" actual="Nivel 1" %} {%- endcomment -%}
+<nav class="migas" aria-label="Ruta de navegación">
+  <ol>
+    <li><a href="{{ '/' | relative_url }}">Inicio</a></li>
+    {%- if include.nivel1 %}<li><a href="{{ include.url1 | relative_url }}">{{ include.nivel1 }}</a></li>{% endif %}
+    {%- if include.nivel2 %}<li><a href="{{ include.url2 | relative_url }}">{{ include.nivel2 }}</a></li>{% endif %}
+    <li aria-current="page">{{ include.actual }}</li>
+  </ol>
+</nav>

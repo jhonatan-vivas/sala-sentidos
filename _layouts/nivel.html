@@ -1,0 +1,47 @@
+---
+layout: default
+seccion: curso
+---
+{%- assign nivel_txt = page.nivel | append: "" -%}
+{%- assign clases = site.clases | where: "nivel", nivel_txt | where_exp: "c", "c.publicado != false" | sort: "numero" -%}
+{%- assign info = site.data.curso.niveles | where: "numero", nivel_txt | first -%}
+
+<div class="banda banda--clara">
+  <div class="contenedor">
+    {% include migas.html nivel1="Curso de LSC" url1="/curso/" actual=page.title %}
+  </div>
+  <div class="contenedor seccion-intro">
+    <h1 class="titulo-1">{{ page.title }}</h1>
+    {%- if info.descripcion and info.descripcion != "" %}
+    <p class="texto-grande">{{ info.descripcion }}</p>
+    {%- endif %}
+    <p class="texto-suave">{{ clases | size }} {% if clases.size == 1 %}clase{% else %}clases{% endif %}</p>
+  </div>
+</div>
+
+<div class="contenedor seccion">
+  <nav class="pestanas" aria-label="Niveles del curso">
+    {%- for n in (1..4) %}
+    <a class="pestana" href="{{ '/curso/nivel-' | append: n | append: '/' | relative_url }}"{% if n == page.nivel %} aria-current="page"{% endif %}>Nivel {{ n }}</a>
+    {%- endfor %}
+  </nav>
+
+  {%- if clases.size == 0 %}
+  <p class="aviso">Este nivel todavía no tiene clases publicadas.</p>
+  {%- else %}
+  <ol class="lista-clases">
+    {%- for c in clases %}
+    <li>
+      <a class="tarjeta-clase" href="{{ c.url | relative_url }}">
+        <span class="tarjeta-clase__numero">{{ c.numero }}</span>
+        <span class="tarjeta-clase__texto">
+          <span class="tarjeta-clase__titulo">{{ c.titulo }}</span>
+          <span class="texto-suave">{{ c.videos | size }} {% if c.videos.size == 1 %}video{% else %}videos{% endif %}{% if c.materiales.size > 0 %} · {{ c.materiales | size }} material{% if c.materiales.size > 1 %}es{% endif %}{% endif %}{% if c.actividad.url and c.actividad.url != "" %} · actividad{% endif %}</span>
+        </span>
+        <span class="flecha" aria-hidden="true">→</span>
+      </a>
+    </li>
+    {%- endfor %}
+  </ol>
+  {%- endif %}
+</div>

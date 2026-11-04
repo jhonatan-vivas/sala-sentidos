@@ -1,0 +1,47 @@
+---
+layout: default
+title: Buscar
+scripts:
+  - /assets/js/buscar.js
+---
+<div class="banda banda--clara">
+  <div class="contenedor">
+    {% include migas.html actual="Buscar" %}
+  </div>
+  <div class="contenedor angosto pila">
+    <h1 class="titulo-1">Buscar en el portal</h1>
+    <form class="buscador buscador--grande" role="search" data-buscar>
+      <label class="sr" for="q-pagina">Palabra o tema</label>
+      <input id="q-pagina" name="q" type="search" placeholder="Clases, señas, videos…">
+      <button type="submit" class="boton">Buscar</button>
+    </form>
+  </div>
+</div>
+<section class="seccion">
+  <div class="contenedor angosto">
+    <p class="texto-suave" data-buscar-estado aria-live="polite"></p>
+    <ul class="resultados" data-buscar-resultados></ul>
+  </div>
+</section>
+<script type="application/json" id="indice-busqueda">
+[
+{%- assign primero = true -%}
+{%- for c in site.clases -%}{%- if c.publicado != false -%}
+{%- unless primero %},{% endunless %}{%- assign primero = false -%}
+{"titulo": {{ c.titulo | jsonify }}, "tipo": {{ "Clase · Nivel " | append: c.nivel | jsonify }}, "url": {{ c.url | relative_url | jsonify }}, "texto": {{ c.objetivo | default: "" | jsonify }}}
+{%- endif -%}{%- endfor -%}
+{%- for e in site.senas -%}
+{%- assign slug = e.slug | default: e.termino | slugify -%}
+{%- unless primero %},{% endunless %}{%- assign primero = false -%}
+{"titulo": {{ e.termino | jsonify }}, "tipo": {{ "Seña · " | append: e.area | append: " › " | append: e.subarea | jsonify }}, "url": {{ '/repositorio/' | relative_url | append: '#' | append: slug | jsonify }}, "texto": {{ e.etiquetas | join: " " | jsonify }}}
+{%- endfor -%}
+{%- for v in site.data.comunidad_sorda.videos -%}
+{%- unless primero %},{% endunless %}{%- assign primero = false -%}
+{"titulo": {{ v.titulo | jsonify }}, "tipo": {{ "Video · " | append: v.categoria | jsonify }}, "url": {{ '/comunidad-sorda/' | relative_url | jsonify }}, "texto": ""}
+{%- endfor -%}
+{%- for r in site.data.comunidad_ciega.recursos -%}
+{%- unless primero %},{% endunless %}{%- assign primero = false -%}
+{"titulo": {{ r.titulo | jsonify }}, "tipo": {{ r.tipo | jsonify }}, "url": {{ '/comunidad-ciega/' | relative_url | jsonify }}, "texto": {{ r.descripcion | default: "" | jsonify }}}
+{%- endfor -%}
+]
+</script>

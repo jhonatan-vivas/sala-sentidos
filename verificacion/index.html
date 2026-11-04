@@ -1,0 +1,65 @@
+---
+layout: default
+title: Verificación del servicio
+seccion: verificacion
+scripts:
+  - /assets/js/vendor/qrcode.js
+  - /assets/js/verificacion.js
+roles:
+  - clave: estudiante
+    titulo: Soy estudiante
+  - clave: docente
+    titulo: Soy docente
+---
+{%- assign vf = site.data.verificacion -%}
+<section class="banda banda--clara" aria-labelledby="t-ver">
+  <div class="contenedor">
+    {% include migas.html actual="Verificación del servicio" %}
+  </div>
+  <div class="contenedor bilingue bilingue--heroe">
+    <div class="bilingue__video">
+      {% include video.html id=vf.video titulo="¿Qué es la verificación del servicio?" %}
+    </div>
+    <div class="bilingue__texto">
+      <h1 id="t-ver" class="titulo-1">Verificación del servicio de interpretación</h1>
+      <p class="texto-grande">{{ vf.texto }}</p>
+      <ol class="pasos">
+        <li>Mira el video o lee el texto.</li>
+        <li>Elige si eres estudiante o docente.</li>
+        <li>Responde el formulario con el botón o el código QR.</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="seccion" aria-labelledby="t-rol">
+  <div class="contenedor pila">
+    <h2 id="t-rol" class="titulo-2">¿Quién eres?</h2>
+    <div class="roles">
+      {%- for r in page.roles %}
+      {%- assign datos = vf[r.clave] %}
+      <article class="rol" aria-labelledby="t-{{ r.clave }}">
+        <div class="rol__texto">
+          <h3 id="t-{{ r.clave }}" class="titulo-3 color-azul">{{ r.titulo }}</h3>
+          <p>{{ datos.descripcion }}</p>
+          {%- if datos.url and datos.url != "" %}
+          <a class="boton boton--grande" href="{{ datos.url }}" target="_blank" rel="noopener">Ir al formulario de {{ r.clave }}s <span aria-hidden="true">↗</span><span class="sr">(abre en otra pestaña)</span></a>
+          {%- else %}
+          <p class="aviso">El formulario de {{ r.clave }}s no está disponible por ahora. Escribe a {{ site.data.sitio.correo }}.</p>
+          {%- endif %}
+        </div>
+        {%- if datos.url and datos.url != "" %}
+        <figure class="rol__qr">
+          <div class="qr" data-qr="{{ datos.url | escape }}" role="img" aria-label="Código QR del formulario de {{ r.clave }}s"></div>
+          <figcaption><a href="#" data-qr-descargar="qr-{{ r.clave }}.png">Descargar QR</a></figcaption>
+        </figure>
+        {%- endif %}
+      </article>
+      {%- endfor %}
+    </div>
+    <div class="fila-cajas">
+      <p class="caja caja--clara"><strong>Tus datos:</strong> {{ vf.privacidad }}</p>
+      <p class="caja caja--borde"><strong>¿El formulario no abre?</strong> Escribe a {{ site.data.sitio.correo }} o acércate a la Sala. No uses el formulario del otro rol.</p>
+    </div>
+  </div>
+</section>

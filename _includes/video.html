@@ -1,0 +1,19 @@
+{%- comment -%}
+  Reproductor de video en LSC.
+  Uso: {% include video.html id=page.video titulo="Bienvenida en LSC" %}
+  Si no hay video todavía, muestra un recuadro "video pendiente".
+{%- endcomment -%}
+{%- include yt-id.html valor=include.id -%}
+{%- assign v_titulo = include.titulo | default: "Video en LSC" -%}
+{%- if yt_id != "" -%}
+<div class="video {{ include.clase }}">
+  <iframe src="https://www.youtube-nocookie.com/embed/{{ yt_id }}?rel=0" title="{{ v_titulo | escape }}" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen {% if include.dataattr %}{{ include.dataattr }}{% endif %}></iframe>
+  <span class="sello" aria-hidden="true">LSC</span>
+</div>
+{%- else -%}
+<div class="video video--pendiente {{ include.clase }}" role="img" aria-label="{{ v_titulo | escape }}: video pendiente">
+  <span class="sello" aria-hidden="true">LSC</span>
+  <svg aria-hidden="true" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="10"/><path d="M10 8.5v7l5.5-3.5z" fill="currentColor"/></svg>
+  <span class="video__nota">{{ v_titulo }} · video pendiente</span>
+</div>
+{%- endif -%}

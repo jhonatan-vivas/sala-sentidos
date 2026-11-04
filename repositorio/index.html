@@ -1,0 +1,102 @@
+---
+layout: default
+title: Repositorio de señas
+seccion: repositorio
+scripts:
+  - /assets/js/repositorio.js
+---
+{%- assign senas = site.senas | sort: "termino" -%}
+{%- assign ar = site.data.areas -%}
+
+<section class="banda banda--clara" aria-labelledby="t-repo">
+  <div class="contenedor">
+    {% include migas.html nivel1="Comunidad Sorda" url1="/comunidad-sorda/" actual="Repositorio de señas" %}
+  </div>
+  <div class="contenedor bilingue bilingue--heroe">
+    <div class="bilingue__video bilingue__video--chico">
+      {% include video.html id=ar.video_bienvenida titulo="Cómo usar el repositorio" %}
+    </div>
+    <div class="bilingue__texto">
+      <h1 id="t-repo" class="titulo-1">Repositorio de señas</h1>
+      <p class="texto-grande">Señas de términos académicos organizadas por área y subárea. Cada seña tiene su video, el contexto en que se usa y quién la validó.</p>
+      <form class="buscador buscador--grande" role="search" data-repo-buscar>
+        <label class="sr" for="q-senas">Buscar una seña por palabra en español</label>
+        <input id="q-senas" type="search" placeholder="Busca una palabra: derivada, voltaje…" autocomplete="off">
+        <button type="submit" class="boton">Buscar</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="seccion" aria-label="Explorar señas">
+  <div class="contenedor dos-columnas">
+    <nav class="lateral" aria-label="Áreas y subáreas">
+      <button type="button" class="filtro filtro--todas" data-area="" data-sub="" aria-pressed="true">Todas las áreas <span>{{ senas | size }}</span></button>
+      {%- for a in ar.areas %}
+      {%- assign en_area = senas | where: "area", a.nombre %}
+      <div class="filtro-grupo">
+        <button type="button" class="filtro filtro--area" data-area="{{ a.nombre | escape }}" data-sub="" aria-pressed="false">{{ a.nombre }} <span>{{ en_area | size }}</span></button>
+        {%- for sub in a.subareas %}
+        {%- assign en_sub = en_area | where: "subarea", sub %}
+        <button type="button" class="filtro filtro--sub" data-area="{{ a.nombre | escape }}" data-sub="{{ sub | escape }}" aria-pressed="false">{{ sub }} <span>{{ en_sub | size }}</span></button>
+        {%- endfor %}
+      </div>
+      {%- endfor %}
+      <p class="texto-suave lateral__nota">Las áreas y subáreas se agregan desde el panel de edición.</p>
+    </nav>
+
+    <div class="principal">
+      <div class="fila-titulo">
+        <h2 class="titulo-3" data-repo-titulo aria-live="polite">Todas las áreas</h2>
+        <span class="texto-suave" data-repo-conteo>{{ senas | size }} señas</span>
+      </div>
+
+      <p class="aviso" data-repo-vacio hidden>No encontramos «<span data-repo-q></span>» en el repositorio. Eso no significa que la seña no exista: prueba otra palabra o explora un área.</p>
+
+      <ul class="rejilla-senas">
+        {%- for e in senas %}
+        {%- include yt-id.html valor=e.youtube %}
+        {%- assign slug = e.slug | default: e.termino | slugify %}
+        <li data-sena
+            data-id="{{ slug }}"
+            data-termino="{{ e.termino | escape }}"
+            data-area="{{ e.area | escape }}"
+            data-sub="{{ e.subarea | escape }}"
+            data-yt="{{ yt_id }}"
+            data-etiquetas="{{ e.etiquetas | join: ' ' | escape }}">
+          <button type="button" class="tarjeta-sena" aria-pressed="false" aria-controls="ficha-sena">
+            <span class="tarjeta-sena__mini" aria-hidden="true">
+              {%- if yt_id != "" %}<img src="https://i.ytimg.com/vi/{{ yt_id }}/mqdefault.jpg" alt="" loading="lazy">{% endif %}
+              <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><path d="M10 8.5v7l5.5-3.5z" fill="currentColor"/></svg>
+            </span>
+            <span class="tarjeta-sena__termino">{{ e.termino }}</span>
+            <span class="texto-suave">{{ e.area }} › {{ e.subarea }}</span>
+          </button>
+          <template data-ficha>
+            <p class="etiqueta">{{ e.area }} › {{ e.subarea }}</p>
+            <h3 class="titulo-2 color-azul">{{ e.termino }}</h3>
+            <dl class="ficha__datos">
+              {%- if e.contexto and e.contexto != "" %}<div><dt>Contexto de uso</dt><dd>{{ e.contexto }}</dd></div>{% endif %}
+              <div><dt>Variantes y notas</dt><dd>{{ e.variantes | default: "Sin variantes registradas." }}</dd></div>
+              {%- if e.validado_por and e.validado_por != "" %}<div><dt>Validación</dt><dd>{{ e.validado_por }}{% if e.fecha and e.fecha != "" %} · {{ e.fecha }}{% endif %}</dd></div>{% endif %}
+            </dl>
+          </template>
+        </li>
+        {%- endfor %}
+      </ul>
+
+      <article id="ficha-sena" class="ficha" aria-live="polite" hidden>
+        <div class="ficha__video">
+          <div data-ficha-video></div>
+          <div class="botones">
+            <button type="button" class="boton-chico" data-velocidad aria-pressed="false">Velocidad 0.5×</button>
+          </div>
+        </div>
+        <div class="ficha__texto">
+          <div data-ficha-texto></div>
+          <p class="nota">Esta seña es una referencia académica de la UTP. Pueden existir otras señas válidas según la región o el contexto.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>

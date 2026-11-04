@@ -1,0 +1,291 @@
+# ─────────────────────────────────────────────────────────────
+#  Panel de edición (Decap CMS) · Sala de los Sentidos
+#  Funciona en tu computador con "npx decap-server" (ver README.md).
+#  Cada formulario escribe en los archivos de _data/, _clases/ y _senas/.
+#  Después revisas y subes los cambios con git (add, commit, push).
+# ─────────────────────────────────────────────────────────────
+
+backend:
+  name: github
+  repo: USUARIO/sala-de-los-sentidos   # cámbialo por tu usuario/repositorio
+  branch: main
+
+# Usa los archivos de tu computador en lugar de GitHub (requiere "npx decap-server")
+local_backend: true
+
+locale: es
+site_url: http://localhost:4000/sala-de-los-sentidos/
+display_url: http://localhost:4000/sala-de-los-sentidos/
+
+media_folder: assets/uploads
+public_folder: /assets/uploads
+
+slug:
+  encoding: ascii
+  clean_accents: true
+  sanitize_replacement: "-"
+
+collections:
+
+  # ── 1. Curso de LSC: una clase por archivo ─────────────────
+  - name: clases
+    label: "Curso · Clases"
+    label_singular: Clase
+    description: "Cada clase pertenece a un nivel (1 a 4). Puedes agregar varios videos, materiales y una actividad."
+    folder: _clases
+    extension: md
+    format: frontmatter
+    create: true
+    delete: true
+    slug: "nivel-{{nivel}}-clase-{{numero}}"
+    identifier_field: titulo
+    summary: "Nivel {{nivel}} · Clase {{numero}} — {{titulo}}"
+    sortable_fields: [nivel, numero, titulo]
+    view_groups:
+      - label: Nivel
+        field: nivel
+    fields:
+      - { label: "Nivel", name: nivel, widget: number, value_type: int, min: 1, max: 4, default: 1 }
+      - { label: "Número de la clase", name: numero, widget: number, value_type: int, min: 1, hint: "Define el orden dentro del nivel." }
+      - { label: "Tema de la clase", name: titulo, widget: string }
+      - { label: "Objetivo (opcional)", name: objetivo, widget: text, required: false }
+      - { label: "Publicada", name: publicado, widget: boolean, default: true, hint: "Desactívalo para ocultar la clase sin borrarla." }
+      - label: "Videos de la clase"
+        name: videos
+        widget: list
+        label_singular: video
+        summary: "{{fields.titulo}}"
+        min: 1
+        fields:
+          - { label: "Título", name: titulo, widget: string, default: "Explicación" }
+          - { label: "Enlace o ID de YouTube", name: youtube, widget: string, required: false, hint: "Pega el enlace completo (https://youtu.be/...) o solo el ID." }
+          - { label: "Duración (opcional)", name: duracion, widget: string, required: false, hint: "Ej.: 04:30" }
+      - label: "Material de la clase"
+        name: materiales
+        widget: list
+        label_singular: material
+        required: false
+        summary: "{{fields.tipo}} · {{fields.nombre}}"
+        fields:
+          - { label: "Nombre", name: nombre, widget: string }
+          - { label: "Tipo", name: tipo, widget: select, options: [PDF, Presentación, Documento, Video, Enlace], default: PDF }
+          - { label: "Enlace", name: url, widget: string, required: false, pattern: ['^(https?://.+)?$', "Debe empezar por http:// o https://"] }
+      - label: "Actividad"
+        name: actividad
+        widget: object
+        required: false
+        fields:
+          - { label: "Instrucción breve", name: instruccion, widget: text, required: false }
+          - { label: "Enlace a la actividad", name: url, widget: string, required: false, pattern: ['^(https?://.+)?$', "Debe empezar por http:// o https://"] }
+
+  # ── 2. Repositorio de señas: una seña por archivo ──────────
+  - name: senas
+    label: "Repositorio · Señas"
+    label_singular: Seña
+    description: "Las áreas y subáreas se administran en Configuración › Áreas del repositorio."
+    folder: _senas
+    extension: md
+    format: frontmatter
+    create: true
+    delete: true
+    slug: "{{termino}}"
+    identifier_field: termino
+    summary: "{{termino}} — {{area}} › {{subarea}}"
+    sortable_fields: [termino, area, subarea]
+    view_groups:
+      - label: Área
+        field: area
+    fields:
+      - { label: "Término en español", name: termino, widget: string }
+      - label: "Área"
+        name: area
+        widget: relation
+        collection: configuracion
+        file: areas
+        search_fields: ["areas.*.nombre"]
+        value_field: "areas.*.nombre"
+        display_fields: ["areas.*.nombre"]
+      - { label: "Subárea", name: subarea, widget: string, hint: "Escríbela igual que en Configuración › Áreas del repositorio (ej.: Cálculo)." }
+      - { label: "Video de la seña (enlace o ID de YouTube)", name: youtube, widget: string, required: false }
+      - { label: "Contexto de uso", name: contexto, widget: text, required: false }
+      - { label: "Variantes y notas", name: variantes, widget: text, required: false }
+      - { label: "Validado por", name: validado_por, widget: string, required: false, hint: "Nombre o rol de quien validó la seña." }
+      - { label: "Fecha de validación", name: fecha, widget: string, required: false, hint: "Ej.: 2026-11-03" }
+      - { label: "Palabras clave (para la búsqueda)", name: etiquetas, widget: list, required: false }
+
+  # ── 3. Secciones del portal ────────────────────────────────
+  - name: secciones
+    label: "Secciones"
+    editor: { preview: false }
+    files:
+      - label: "Curso de LSC · Bienvenida y niveles"
+        name: curso
+        file: _data/curso.yml
+        fields:
+          - { label: "Video de bienvenida (YouTube)", name: bienvenida_video, widget: string, required: false }
+          - { label: "Texto de bienvenida en español", name: bienvenida_texto, widget: text }
+          - label: "Niveles"
+            name: niveles
+            widget: list
+            allow_add: false
+            summary: "Nivel {{fields.numero}}"
+            fields:
+              - { label: "Número", name: numero, widget: number, value_type: int }
+              - { label: "Descripción corta (opcional)", name: descripcion, widget: text, required: false }
+
+      - label: "Comunidad Sorda"
+        name: comunidad_sorda
+        file: _data/comunidad_sorda.yml
+        fields:
+          - { label: "Video de bienvenida (YouTube)", name: bienvenida_video, widget: string, required: false }
+          - { label: "Texto de bienvenida en español", name: bienvenida_texto, widget: text }
+          - { label: "Categorías de videos", name: categorias, widget: list, hint: "Ej.: Curiosidades, Cultura Sorda, Historia…" }
+          - label: "Videos"
+            name: videos
+            widget: list
+            label_singular: video
+            summary: "{{fields.categoria}} · {{fields.titulo}}"
+            fields:
+              - { label: "Título", name: titulo, widget: string }
+              - { label: "Categoría", name: categoria, widget: string, hint: "Escríbela igual que en la lista de categorías." }
+              - { label: "Enlace o ID de YouTube", name: youtube, widget: string, required: false }
+              - { label: "Duración (opcional)", name: duracion, widget: string, required: false }
+          - label: "Podcast"
+            name: podcast
+            widget: object
+            fields:
+              - { label: "Nombre del podcast", name: nombre, widget: string }
+              - { label: "Descripción", name: descripcion, widget: text }
+              - label: "Episodios (del más antiguo al más reciente)"
+                name: episodios
+                widget: list
+                label_singular: episodio
+                summary: "{{fields.titulo}}"
+                fields:
+                  - { label: "Título", name: titulo, widget: string }
+                  - { label: "Invitado/a", name: invitado, widget: string, required: false }
+                  - { label: "Enlace o ID de YouTube", name: youtube, widget: string, required: false }
+                  - { label: "Duración", name: duracion, widget: string, required: false }
+
+      - label: "Comunidad ciega"
+        name: comunidad_ciega
+        file: _data/comunidad_ciega.yml
+        fields:
+          - { label: "Texto de presentación", name: texto, widget: text }
+          - label: "Recursos"
+            name: recursos
+            widget: list
+            label_singular: recurso
+            summary: "{{fields.tipo}} · {{fields.titulo}}"
+            fields:
+              - { label: "Tipo", name: tipo, widget: select, options: ["Video con audiodescripción", "Audio", "Documento accesible", "Enlace"] }
+              - { label: "Título", name: titulo, widget: string }
+              - { label: "Descripción", name: descripcion, widget: text, required: false }
+              - { label: "Enlace", name: url, widget: string, required: false }
+              - { label: "Duración o páginas (opcional)", name: duracion, widget: string, required: false }
+
+      - label: "Verificación del servicio"
+        name: verificacion
+        file: _data/verificacion.yml
+        fields:
+          - { label: "Video explicativo (YouTube)", name: video, widget: string, required: false }
+          - { label: "Texto en español", name: texto, widget: text }
+          - label: "Estudiantes"
+            name: estudiante
+            widget: object
+            fields:
+              - { label: "Enlace del formulario", name: url, widget: string, required: false, hint: "El código QR se genera solo con este enlace." }
+              - { label: "Descripción", name: descripcion, widget: string }
+          - label: "Docentes"
+            name: docente
+            widget: object
+            fields:
+              - { label: "Enlace del formulario", name: url, widget: string, required: false, hint: "El código QR se genera solo con este enlace." }
+              - { label: "Descripción", name: descripcion, widget: string }
+          - { label: "Aviso de privacidad", name: privacidad, widget: text }
+          - { label: "Plataforma de los formularios", name: plataforma, widget: string, required: false }
+
+  # ── 4. Configuración general ───────────────────────────────
+  - name: configuracion
+    label: "Configuración"
+    editor: { preview: false }
+    files:
+      - label: "Datos de la Sala"
+        name: sitio
+        file: _data/sitio.yml
+        fields:
+          - { label: "Nombre", name: nombre, widget: string }
+          - { label: "Institución", name: institucion, widget: string }
+          - { label: "Dependencia", name: dependencia, widget: string }
+          - { label: "Descripción corta (Inicio)", name: descripcion, widget: text }
+          - { label: "Ubicación", name: ubicacion, widget: string }
+          - { label: "Correo", name: correo, widget: string }
+          - { label: "Teléfono", name: telefono, widget: string, required: false }
+          - { label: "Canal de YouTube (URL)", name: youtube_canal, widget: string, required: false }
+          - { label: "Logo UTP", name: logo_utp, widget: image, media_folder: /assets/img/logos, public_folder: /assets/img/logos }
+          - { label: "Logo de la Sala", name: logo_sala, widget: image, media_folder: /assets/img/logos, public_folder: /assets/img/logos }
+          - { label: "Logo UTP (blanco)", name: logo_utp_blanco, widget: image, media_folder: /assets/img/logos, public_folder: /assets/img/logos }
+          - { label: "Logo de la Sala (blanco)", name: logo_sala_blanco, widget: image, media_folder: /assets/img/logos, public_folder: /assets/img/logos }
+          - { label: "Video de bienvenida (YouTube)", name: video_bienvenida, widget: string, required: false }
+          - { label: "Video «¿Qué es la Sala?» (YouTube)", name: video_que_es, widget: string, required: false }
+          - { label: "Texto «¿Qué es la Sala?»", name: texto_que_es, widget: text }
+          - { label: "Última actualización (texto libre)", name: ultima_actualizacion, widget: string, required: false }
+
+      - label: "Menú y señas del menú"
+        name: menu
+        file: _data/menu.yml
+        fields:
+          - label: "Opciones del menú"
+            name: items
+            widget: list
+            allow_add: false
+            summary: "{{fields.titulo}}"
+            fields:
+              - { label: "Identificador (no cambiar)", name: id, widget: string }
+              - { label: "Texto", name: titulo, widget: string }
+              - { label: "Dirección de la página (no cambiar)", name: url, widget: string }
+              - { label: "Clip de la seña (2–3 s, .mp4)", name: clip, widget: file, required: false, media_folder: /assets/video/menu, public_folder: /assets/video/menu }
+
+      - label: "Equipo"
+        name: equipo
+        file: _data/equipo.yml
+        fields:
+          - label: "Personas"
+            name: personas
+            widget: list
+            label_singular: persona
+            summary: "{{fields.grupo}} · {{fields.nombre}}"
+            fields:
+              - { label: "Nombre", name: nombre, widget: string }
+              - { label: "Rol", name: rol, widget: string }
+              - { label: "Grupo", name: grupo, widget: string, hint: "Las personas con el mismo grupo se muestran juntas (ej.: Intérpretes de LSC)." }
+              - { label: "Foto (opcional)", name: foto, widget: image, required: false, media_folder: /assets/img/equipo, public_folder: /assets/img/equipo }
+              - { label: "Presentación en LSC (YouTube, opcional)", name: video_lsc, widget: string, required: false }
+
+      - label: "Horarios"
+        name: horarios
+        file: _data/horarios.yml
+        fields:
+          - { label: "Aviso (opcional)", name: aviso, widget: string, required: false, hint: "Ej.: El viernes 7 no hay atención." }
+          - label: "Días"
+            name: dias
+            widget: list
+            summary: "{{fields.dia}}"
+            fields:
+              - { label: "Día", name: dia, widget: string }
+              - { label: "Mañana", name: manana, widget: string, required: false }
+              - { label: "Tarde", name: tarde, widget: string, required: false }
+
+      - label: "Áreas del repositorio"
+        name: areas
+        file: _data/areas.yml
+        fields:
+          - { label: "Video «Cómo usar el repositorio» (YouTube)", name: video_bienvenida, widget: string, required: false }
+          - label: "Áreas"
+            name: areas
+            widget: list
+            label_singular: área
+            summary: "{{fields.nombre}}"
+            fields:
+              - { label: "Nombre del área", name: nombre, widget: string, hint: "Ej.: Ingeniería, Licenciaturas, Ciencias de la Salud…" }
+              - { label: "Subáreas", name: subareas, widget: list, hint: "Ej.: Matemáticas, Cálculo, Electrónica" }

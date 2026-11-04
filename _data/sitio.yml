@@ -1,0 +1,24 @@
+# Datos generales de la Sala. Se edita desde el panel: Configuración › Datos de la Sala
+nombre: Sala de los Sentidos
+institucion: Universidad Tecnológica de Pereira
+dependencia: VRSBU
+descripcion: Información, recursos y servicios para la Comunidad Sorda, la comunidad ciega y quienes aprenden Lengua de Señas Colombiana (LSC) en la UTP.
+
+ubicacion: "[Bloque y salón]"
+correo: "[correo@utp.edu.co]"
+telefono: "[Teléfono / extensión]"
+youtube_canal: ""            # URL del canal de YouTube de la Sala
+
+# Logos: reemplaza los archivos de assets/img/logos/ conservando el nombre,
+# o cambia aquí la ruta.
+logo_utp: /assets/img/logos/logo-utp.svg
+logo_sala: /assets/img/logos/logo-sala.svg
+logo_utp_blanco: /assets/img/logos/logo-utp-blanco.svg
+logo_sala_blanco: /assets/img/logos/logo-sala-blanco.svg
+
+# Videos de Inicio (pega el enlace o el ID de YouTube)
+video_bienvenida: ""
+video_que_es: ""
+texto_que_es: "[Texto institucional aprobado por la responsable de la Sala: propósito, a quién atiende y cómo se relaciona con VRSBU. Lenguaje claro, párrafos cortos, idea principal primero.]"
+
+ultima_actualizacion: ""

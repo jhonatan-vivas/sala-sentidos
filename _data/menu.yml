@@ -1,0 +1,27 @@
+# Menú principal. Cada opción tiene un clip corto (2–3 s, sin sonido) con su seña en LSC.
+# Los clips van en assets/video/menu/ (formato .mp4, idealmente < 500 KB).
+items:
+  - id: inicio
+    titulo: Inicio
+    url: /
+    clip: /assets/video/menu/inicio.mp4
+  - id: curso
+    titulo: Curso de LSC
+    url: /curso/
+    clip: /assets/video/menu/curso.mp4
+  - id: sorda
+    titulo: Comunidad Sorda
+    url: /comunidad-sorda/
+    clip: /assets/video/menu/comunidad-sorda.mp4
+  - id: repositorio
+    titulo: Repositorio de señas
+    url: /repositorio/
+    clip: /assets/video/menu/repositorio.mp4
+  - id: ciega
+    titulo: Comunidad ciega
+    url: /comunidad-ciega/
+    clip: /assets/video/menu/comunidad-ciega.mp4
+  - id: verificacion
+    titulo: Verificación del servicio
+    url: /verificacion/
+    clip: /assets/video/menu/verificacion.mp4

@@ -1,0 +1,13 @@
+# Bienvenida del curso y descripción de cada nivel.
+# Las clases están en la carpeta _clases/ (una clase = un archivo).
+bienvenida_video: ""
+bienvenida_texto: "[Texto en español equivalente al video de bienvenida: a quién va dirigido el curso, cómo se organizan los cuatro niveles y cómo usar cada clase.]"
+niveles:
+  - numero: 1
+    descripcion: ""
+  - numero: 2
+    descripcion: ""
+  - numero: 3
+    descripcion: ""
+  - numero: 4
+    descripcion: ""

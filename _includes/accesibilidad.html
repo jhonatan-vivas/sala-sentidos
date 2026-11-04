@@ -1,0 +1,17 @@
+<div class="a11y">
+  <section id="panel-accesibilidad" class="a11y__panel" aria-label="Opciones de accesibilidad" hidden>
+    <span class="a11y__titulo">Accesibilidad</span>
+    <div class="a11y__rejilla">
+      <button type="button" class="boton-opcion" data-a11y="letra-menos">A− Letra</button>
+      <button type="button" class="boton-opcion" data-a11y="letra-mas">A+ Letra</button>
+      <button type="button" class="boton-opcion" data-a11y="contraste" aria-pressed="false">Alto contraste</button>
+      <button type="button" class="boton-opcion" data-a11y="escuchar" aria-pressed="false">Escuchar página</button>
+    </div>
+    <button type="button" class="boton-opcion a11y__interruptor" role="switch" aria-checked="true" data-a11y="senas">
+      Señas en el menú <span class="a11y__estado">Sí</span>
+    </button>
+  </section>
+  <button type="button" class="a11y__boton" aria-label="Opciones de accesibilidad" aria-expanded="false" aria-controls="panel-accesibilidad">
+    <svg aria-hidden="true" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4.5" r="1.8"/><path d="M5 8.5c2.3.7 4.6 1 7 1s4.7-.3 7-1"/><path d="M12 9.5V14"/><path d="m9 21 3-7 3 7"/></svg>
+  </button>
+</div>

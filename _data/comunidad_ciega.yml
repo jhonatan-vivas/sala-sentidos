@@ -1,0 +1,15 @@
+# Sección en construcción con la tiflóloga y los monitores.
+texto: "[Texto de presentación acordado con los monitores y la tiflóloga: para quién es esta sección, qué recursos tiene y cómo pedir apoyo en la Sala.]"
+
+# tipo: Video con audiodescripción | Audio | Documento accesible | Enlace
+recursos:
+  - tipo: Video con audiodescripción
+    titulo: "[Título del video]"
+    descripcion: "[Descripción en una o dos frases.]"
+    url: ""
+    duracion: ""
+  - tipo: Documento accesible
+    titulo: "[Título del documento]"
+    descripcion: "[Descripción en una o dos frases.]"
+    url: ""
+    duracion: ""

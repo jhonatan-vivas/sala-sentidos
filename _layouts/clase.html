@@ -1,0 +1,96 @@
+---
+layout: default
+---
+{%- assign nivel_txt = page.nivel | append: "" -%}
+{%- assign hermanas = site.clases | where: "nivel", nivel_txt | where_exp: "c", "c.publicado != false" | sort: "numero" -%}
+{%- assign nivel_url = '/curso/nivel-' | append: page.nivel | append: '/' -%}
+{%- assign nivel_nombre = 'Nivel ' | append: page.nivel -%}
+{%- assign actual = 'Clase ' | append: page.numero -%}
+{%- for c in hermanas -%}
+  {%- if c.url == page.url -%}
+    {%- assign i = forloop.index0 -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- assign anterior = nil -%}{%- assign siguiente = nil -%}
+{%- if i > 0 -%}{%- assign ia = i | minus: 1 -%}{%- assign anterior = hermanas[ia] -%}{%- endif -%}
+{%- assign is = i | plus: 1 -%}{%- assign siguiente = hermanas[is] -%}
+
+<div class="banda banda--clara banda--compacta">
+  <div class="contenedor">
+    {% include migas.html nivel1="Curso de LSC" url1="/curso/" nivel2=nivel_nombre url2=nivel_url actual=actual %}
+  </div>
+</div>
+
+<div class="contenedor seccion dos-columnas dos-columnas--clase">
+  <nav class="lateral" aria-label="Clases del {{ nivel_nombre }}">
+    <p class="etiqueta">{{ nivel_nombre }} · Clases</p>
+    <ol class="lateral__lista">
+      {%- for c in hermanas %}
+      <li><a class="lateral__enlace" href="{{ c.url | relative_url }}"{% if c.url == page.url %} aria-current="page"{% endif %}><span class="lateral__num">{{ c.numero }}</span><span>{{ c.titulo }}</span></a></li>
+      {%- endfor %}
+    </ol>
+  </nav>
+
+  <article class="principal" aria-labelledby="titulo-clase">
+    <p class="etiqueta">{{ nivel_nombre }} · Clase {{ page.numero }}</p>
+    <h1 id="titulo-clase" class="titulo-2">{{ page.titulo }}</h1>
+
+    {%- assign primero = page.videos | first %}
+    <div class="reproductor" data-reproductor>
+      {% include video.html id=primero.youtube titulo=primero.titulo %}
+    </div>
+
+    {%- if page.videos.size > 1 %}
+    <div class="lista-videos">
+      <p class="etiqueta">Videos de esta clase · {{ page.videos | size }}</p>
+      <ol class="lista-videos__items">
+        {%- for v in page.videos %}
+        {%- include yt-id.html valor=v.youtube %}
+        <li>
+          <button type="button" class="boton-video" data-yt="{{ yt_id }}" data-titulo="{{ v.titulo | escape }}"{% if forloop.first %} aria-current="true"{% endif %}>
+            <span class="boton-video__mini" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M10 8.5v7l5.5-3.5z" fill="currentColor"/></svg></span>
+            <span class="boton-video__texto"><strong>Video {{ forloop.index }}</strong><span>{{ v.titulo }}{% if v.duracion and v.duracion != "" %} · {{ v.duracion }}{% endif %}</span></span>
+          </button>
+        </li>
+        {%- endfor %}
+      </ol>
+    </div>
+    {%- endif %}
+
+    {%- if page.objetivo and page.objetivo != "" %}
+    <p class="texto-grande">{{ page.objetivo }}</p>
+    {%- endif %}
+
+    <div class="fila-cajas">
+      {%- if page.materiales.size > 0 %}
+      <section class="caja caja--clara" aria-labelledby="t-material">
+        <h2 id="t-material" class="titulo-4">Material de la clase</h2>
+        <ul class="lista-material">
+          {%- for m in page.materiales %}
+          <li>
+            {%- if m.url and m.url != "" %}
+            <a href="{{ m.url }}" target="_blank" rel="noopener"><span class="formato">{{ m.tipo | default: "Enlace" }}</span><span class="lista-material__nombre">{{ m.nombre }}</span><span aria-hidden="true">↗</span><span class="sr">(abre en otra pestaña)</span></a>
+            {%- else %}
+            <span class="lista-material__pendiente"><span class="formato">{{ m.tipo | default: "Enlace" }}</span><span class="lista-material__nombre">{{ m.nombre }} (pendiente)</span></span>
+            {%- endif %}
+          </li>
+          {%- endfor %}
+        </ul>
+      </section>
+      {%- endif %}
+
+      {%- if page.actividad.url and page.actividad.url != "" %}
+      <section class="caja caja--azul" aria-labelledby="t-actividad">
+        <h2 id="t-actividad" class="titulo-4">Actividad</h2>
+        {%- if page.actividad.instruccion and page.actividad.instruccion != "" %}<p>{{ page.actividad.instruccion }}</p>{% endif %}
+        <a class="boton boton--blanco" href="{{ page.actividad.url }}" target="_blank" rel="noopener">Ir a la actividad <span aria-hidden="true">↗</span><span class="sr">(abre en otra pestaña)</span></a>
+      </section>
+      {%- endif %}
+    </div>
+
+    <nav class="anterior-siguiente" aria-label="Otras clases">
+      {%- if anterior %}<a class="boton boton--borde" href="{{ anterior.url | relative_url }}">← Clase anterior</a>{% else %}<span></span>{% endif %}
+      {%- if siguiente %}<a class="boton" href="{{ siguiente.url | relative_url }}">Clase siguiente →</a>{% endif %}
+    </nav>
+  </article>
+</div>

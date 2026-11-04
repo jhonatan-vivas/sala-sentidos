@@ -1,0 +1,72 @@
+---
+layout: default
+title: Comunidad Sorda
+seccion: sorda
+---
+{%- assign cs = site.data.comunidad_sorda -%}
+<section class="banda banda--oscura" aria-labelledby="t-cs">
+  <div class="contenedor">
+    {% include migas.html actual="Comunidad Sorda" %}
+  </div>
+  <div class="contenedor bilingue bilingue--heroe">
+    <div class="bilingue__texto">
+      <h1 id="t-cs" class="titulo-1">Comunidad Sorda</h1>
+      <p class="texto-grande">{{ cs.bienvenida_texto }}</p>
+      <a class="boton boton--blanco" href="{{ '/repositorio/' | relative_url }}">Ir al repositorio de señas →</a>
+    </div>
+    <div class="bilingue__video">
+      {% include video.html id=cs.bienvenida_video titulo="Bienvenida a Comunidad Sorda en LSC" %}
+    </div>
+  </div>
+</section>
+
+<section class="seccion" aria-labelledby="t-videos" data-filtrable>
+  <div class="contenedor pila">
+    <div class="fila-titulo">
+      <h2 id="t-videos" class="titulo-2">Videos</h2>
+      {%- if site.data.sitio.youtube_canal and site.data.sitio.youtube_canal != "" %}
+      <a href="{{ site.data.sitio.youtube_canal }}" target="_blank" rel="noopener">Ver el canal en YouTube <span aria-hidden="true">↗</span></a>
+      {%- endif %}
+    </div>
+    <div class="chips" role="group" aria-label="Filtrar videos por categoría">
+      <button type="button" class="chip" data-filtro="" aria-pressed="true">Todos</button>
+      {%- for c in cs.categorias %}
+      <button type="button" class="chip" data-filtro="{{ c | escape }}" aria-pressed="false">{{ c }}</button>
+      {%- endfor %}
+    </div>
+    <ul class="rejilla-videos">
+      {%- for v in cs.videos %}
+      <li class="tarjeta-video" data-categoria="{{ v.categoria | escape }}">
+        {% include video-lite.html id=v.youtube titulo=v.titulo duracion=v.duracion %}
+        <span class="etiqueta">{{ v.categoria }}</span>
+        <span class="tarjeta-video__titulo">{{ v.titulo }}</span>
+      </li>
+      {%- endfor %}
+    </ul>
+    <p class="aviso" data-sin-resultados hidden>Aún no hay videos en esta categoría.</p>
+  </div>
+</section>
+
+{%- if cs.podcast and cs.podcast.episodios.size > 0 %}
+<section class="banda banda--clara seccion" aria-labelledby="t-podcast">
+  <div class="contenedor dos-partes">
+    <div class="dos-partes__intro">
+      <h2 id="t-podcast" class="titulo-2 color-azul">Podcast en LSC</h2>
+      <p class="texto-grande">{{ cs.podcast.nombre }}</p>
+      <p>{{ cs.podcast.descripcion }}</p>
+    </div>
+    <ol class="episodios">
+      {%- for e in cs.podcast.episodios reversed %}
+      <li class="episodio">
+        {% include video-lite.html id=e.youtube titulo=e.titulo duracion=e.duracion %}
+        <div class="episodio__texto">
+          <span class="etiqueta">Episodio {{ forloop.rindex }}</span>
+          <span class="episodio__titulo">{{ e.titulo }}</span>
+          <span class="texto-suave">{{ e.invitado }}{% if e.duracion and e.duracion != "" %} · {{ e.duracion }}{% endif %} · LSC + subtítulos</span>
+        </div>
+      </li>
+      {%- endfor %}
+    </ol>
+  </div>
+</section>
+{%- endif %}

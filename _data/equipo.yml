@@ -1,0 +1,33 @@
+# Equipo de la Sala. Los grupos aparecen en el orden en que se mencionan por primera vez.
+# foto: opcional (sube la imagen desde el panel). video_lsc: opcional (enlace o ID de YouTube).
+personas:
+  - nombre: "[Nombre]"
+    rol: Responsable de la Sala
+    grupo: Coordinación
+    foto: ""
+    video_lsc: ""
+  - nombre: "[Nombre]"
+    rol: Intérprete y traductor LSC–español
+    grupo: Intérpretes de LSC
+    foto: ""
+    video_lsc: ""
+  - nombre: "[Nombre]"
+    rol: Intérprete LSC–español
+    grupo: Intérpretes de LSC
+    foto: ""
+    video_lsc: ""
+  - nombre: "[Nombre]"
+    rol: Docente del curso de LSC
+    grupo: Docentes del curso de LSC
+    foto: ""
+    video_lsc: ""
+  - nombre: "[Nombre]"
+    rol: Tiflóloga
+    grupo: Apoyo a la comunidad ciega
+    foto: ""
+    video_lsc: ""
+  - nombre: "[Nombre]"
+    rol: Monitor(a)
+    grupo: Monitores
+    foto: ""
+    video_lsc: ""

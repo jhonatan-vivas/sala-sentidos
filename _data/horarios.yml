@@ -1,0 +1,18 @@
+# Horarios de atención. Si algo cambia, escribe el aviso y se mostrará resaltado.
+aviso: ""
+dias:
+  - dia: Lunes
+    manana: "[HH:MM – HH:MM]"
+    tarde: "[HH:MM – HH:MM]"
+  - dia: Martes
+    manana: "[HH:MM – HH:MM]"
+    tarde: "[HH:MM – HH:MM]"
+  - dia: Miércoles
+    manana: "[HH:MM – HH:MM]"
+    tarde: "[HH:MM – HH:MM]"
+  - dia: Jueves
+    manana: "[HH:MM – HH:MM]"
+    tarde: "[HH:MM – HH:MM]"
+  - dia: Viernes
+    manana: "[HH:MM – HH:MM]"
+    tarde: "[HH:MM – HH:MM]"

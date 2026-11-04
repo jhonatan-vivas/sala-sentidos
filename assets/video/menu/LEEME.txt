@@ -1,0 +1,5 @@
+Clips de las señas del menú (uno por opción). Nombres esperados:
+  inicio.mp4  curso.mp4  comunidad-sorda.mp4  repositorio.mp4  comunidad-ciega.mp4  verificacion.mp4
+Recomendaciones: 2–3 segundos, sin audio, .mp4 (H.264), 480 px de ancho, menos de 500 KB.
+Si un clip no existe todavía, el sitio muestra "La seña estará disponible pronto".
+Para cambiar nombres o rutas: _data/menu.yml (o el panel: Configuración › Menú).

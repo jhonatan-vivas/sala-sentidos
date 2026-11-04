@@ -1,0 +1,13 @@
+# Áreas y subáreas del repositorio de señas. Agrega las que necesites:
+# aparecerán solas en el menú lateral del repositorio.
+video_bienvenida: ""
+areas:
+  - nombre: Ingeniería
+    subareas:
+      - Matemáticas
+      - Cálculo
+      - Electrónica
+  - nombre: Licenciaturas
+    subareas:
+      - Pedagogía
+      - Didáctica

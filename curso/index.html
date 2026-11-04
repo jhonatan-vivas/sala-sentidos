@@ -1,0 +1,42 @@
+---
+layout: default
+title: Curso de LSC
+seccion: curso
+---
+{%- assign cu = site.data.curso -%}
+<div class="banda banda--clara">
+  <div class="contenedor">
+    {% include migas.html actual="Curso de LSC" %}
+  </div>
+  <section class="contenedor bilingue bilingue--heroe" aria-labelledby="t-curso">
+    <div class="bilingue__video">
+      {% include video.html id=cu.bienvenida_video titulo="Bienvenida al curso de LSC" %}
+    </div>
+    <div class="bilingue__texto">
+      <h1 id="t-curso" class="titulo-1">Curso de Lengua de Señas Colombiana</h1>
+      <p class="texto-grande">{{ cu.bienvenida_texto }}</p>
+      <p class="texto-suave">El video está en LSC; este texto es su versión en español.</p>
+    </div>
+  </section>
+</div>
+
+<section class="seccion" aria-labelledby="t-niveles">
+  <div class="contenedor">
+    <h2 id="t-niveles" class="titulo-2">Niveles del curso</h2>
+    <ul class="rejilla-niveles">
+      {%- for n in (1..4) %}
+      {%- assign n_txt = n | append: "" %}
+      {%- assign cantidad = site.clases | where: "nivel", n_txt | where_exp: "c", "c.publicado != false" | size %}
+      {%- assign info = cu.niveles | where: "numero", n_txt | first %}
+      <li>
+        <a class="tarjeta tarjeta--nivel" href="{{ '/curso/nivel-' | append: n | append: '/' | relative_url }}">
+          <span class="tarjeta__numero" aria-hidden="true">{{ n }}</span>
+          <span class="tarjeta__titulo">Nivel {{ n }}</span>
+          {%- if info.descripcion and info.descripcion != "" %}<span class="tarjeta__texto">{{ info.descripcion }}</span>{% endif %}
+          <span class="tarjeta__ir">{{ cantidad }} {% if cantidad == 1 %}clase{% else %}clases{% endif %} →</span>
+        </a>
+      </li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
