@@ -106,12 +106,12 @@ modulos:
     </div>
 
     {%- if sala.talleres %}
-    <div class="pila">
-      <div class="seccion-intro seccion-intro--sin-margen">
+    <div class="talleres">
+      <div class="talleres__intro">
         <h3 class="titulo-3">Talleres de formación</h3>
         <p class="texto-grande">{{ sala.talleres.texto }}</p>
       </div>
-      <ul class="rejilla-tarjetas">
+      <ul class="talleres__lista">
         {%- for t in sala.talleres.items %}
         <li>
           {%- if t.url and t.url != "" %}

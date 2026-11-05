@@ -428,7 +428,11 @@ html.alto-contraste .nav :focus-visible { outline-color: #FFE14D; }
 .historia { background: var(--blanco); border-radius: 16px; padding: 0 1.5rem; }
 .historia__resumen { cursor: pointer; min-height: 3.5rem; display: flex; align-items: center; font-weight: 700; font-size: 1.15rem; color: var(--azul); }
 .historia__texto { display: flex; flex-direction: column; gap: .9rem; padding-bottom: 1.5rem; font-size: 1.1rem; color: var(--tinta); max-width: 48rem; }
-.seccion-intro--sin-margen { margin-bottom: 0; }
+.seccion-intro--sin-margen, .banda .seccion-intro--sin-margen { margin-bottom: 0; padding-block: 0; }
+.talleres { display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; }
+.talleres__intro { flex: 1 1 22rem; min-width: 0; display: flex; flex-direction: column; gap: .75rem; }
+.talleres__lista { flex: 1.4 1 28rem; min-width: 0; list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: 1rem; }
+.talleres__lista > li { display: flex; }
 .poblaciones { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr)); gap: 1rem; }
 .poblacion { background: var(--blanco); border-radius: 16px; padding: 1.4rem; display: flex; flex-direction: column; gap: .6rem; }
 .poblacion__apoyos { margin: 0; padding-left: 1.2rem; display: flex; flex-direction: column; gap: .35rem; }
