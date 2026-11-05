@@ -1,0 +1,65 @@
+{%- comment -%}
+  Contenido de una clase (videos, objetivo, material, actividad).
+  Uso: {% include clase-detalle.html c=clase anterior=otra siguiente=otra %}
+{%- endcomment -%}
+{%- assign c = include.c -%}
+<p class="etiqueta">Nivel {{ c.nivel }} · Clase {{ c.numero }}</p>
+<h3 class="titulo-2 color-azul">{{ c.titulo }}</h3>
+
+{%- assign primero = c.videos | first %}
+<div class="reproductor" data-reproductor>
+  {% include video-lite.html id=primero.youtube titulo=primero.titulo %}
+</div>
+
+{%- if c.videos.size > 1 %}
+<div class="lista-videos">
+  <p class="etiqueta">Videos de esta clase · {{ c.videos | size }}</p>
+  <ol class="lista-videos__items">
+    {%- for v in c.videos %}
+    {%- include yt-id.html valor=v.youtube %}
+    <li>
+      <button type="button" class="boton-video" data-yt="{{ yt_id }}" data-titulo="{{ v.titulo | escape }}"{% if forloop.first %} aria-current="true"{% endif %}>
+        <span class="boton-video__mini" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M10 8.5v7l5.5-3.5z" fill="currentColor"/></svg></span>
+        <span class="boton-video__texto"><strong>Video {{ forloop.index }}</strong><span>{{ v.titulo }}{% if v.duracion and v.duracion != "" %} · {{ v.duracion }}{% endif %}</span></span>
+      </button>
+    </li>
+    {%- endfor %}
+  </ol>
+</div>
+{%- endif %}
+
+{%- if c.objetivo and c.objetivo != "" %}
+<p class="texto-grande">{{ c.objetivo }}</p>
+{%- endif %}
+
+<div class="fila-cajas">
+  {%- if c.materiales.size > 0 %}
+  <section class="caja caja--clara">
+    <h4 class="titulo-4">Material de la clase</h4>
+    <ul class="lista-material">
+      {%- for m in c.materiales %}
+      <li>
+        {%- if m.url and m.url != "" %}
+        <a href="{{ m.url }}" target="_blank" rel="noopener"><span class="formato">{{ m.tipo | default: "Enlace" }}</span><span class="lista-material__nombre">{{ m.nombre }}</span><span aria-hidden="true">↗</span><span class="sr">(abre en otra pestaña)</span></a>
+        {%- else %}
+        <span class="lista-material__pendiente"><span class="formato">{{ m.tipo | default: "Enlace" }}</span><span class="lista-material__nombre">{{ m.nombre }} (pendiente)</span></span>
+        {%- endif %}
+      </li>
+      {%- endfor %}
+    </ul>
+  </section>
+  {%- endif %}
+
+  {%- if c.actividad.url and c.actividad.url != "" %}
+  <section class="caja caja--azul">
+    <h4 class="titulo-4">Actividad</h4>
+    {%- if c.actividad.instruccion and c.actividad.instruccion != "" %}<p>{{ c.actividad.instruccion }}</p>{% endif %}
+    <a class="boton boton--blanco" href="{{ c.actividad.url }}" target="_blank" rel="noopener">Ir a la actividad <span aria-hidden="true">↗</span><span class="sr">(abre en otra pestaña)</span></a>
+  </section>
+  {%- endif %}
+</div>
+
+<nav class="anterior-siguiente" aria-label="Otras clases">
+  {%- if include.anterior %}<a class="boton boton--borde" href="#{{ include.anterior.slug }}" data-ir-clase="{{ include.anterior.slug }}">← Clase anterior</a>{% else %}<span></span>{% endif %}
+  {%- if include.siguiente %}<a class="boton" href="#{{ include.siguiente.slug }}" data-ir-clase="{{ include.siguiente.slug }}">Clase siguiente →</a>{% endif %}
+</nav>

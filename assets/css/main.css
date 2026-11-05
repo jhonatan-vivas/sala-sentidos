@@ -305,6 +305,21 @@ html.alto-contraste .nav :focus-visible { outline-color: #FFE14D; }
 }
 .pestana[aria-current="page"] { background: var(--azul); color: var(--blanco); }
 
+/* ── Curso: pestañas de nivel ───────────────────────────── */
+.pestanas-nivel { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: .9rem; margin: 1.75rem 0 2rem; }
+.pestana-nivel {
+  min-height: 5.25rem; display: flex; flex-direction: column; justify-content: center; gap: .15rem; text-align: left;
+  padding: 1rem 1.25rem; border: 2px solid var(--azul); border-radius: 14px; background: var(--blanco); color: var(--azul); cursor: pointer;
+}
+.pestana-nivel:hover { background: var(--azul-claro); }
+.pestana-nivel[aria-selected="true"] { background: var(--azul); color: var(--blanco); }
+.pestana-nivel__nombre { font-size: 1.4rem; font-weight: 700; }
+.pestana-nivel__meta { font-size: .95rem; }
+.panel-nivel__descripcion { margin-bottom: 1.5rem; }
+.clase { display: flex; flex-direction: column; gap: 1.5rem; scroll-margin-top: 1rem; }
+.clase[hidden] { display: none; }
+.reproductor .video-lite { border-radius: 16px; }
+
 /* ── Curso: listas de clases, clase ─────────────────────────── */
 .lista-clases { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: .75rem; }
 .tarjeta-clase {

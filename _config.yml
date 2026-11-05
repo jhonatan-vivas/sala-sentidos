@@ -26,7 +26,7 @@ defaults:
       path: ""
       type: clases
     values:
-      layout: clase
+      layout: redirige
       seccion: curso
 
 markdown: kramdown

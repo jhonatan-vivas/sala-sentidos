@@ -230,32 +230,4 @@
     });
   });
 
-  /* ── 6. Clase: cambiar entre los videos de la clase ─────── */
-  var reproductor = document.querySelector('[data-reproductor]');
-  if (reproductor) {
-    var botones = document.querySelectorAll('.boton-video[data-yt]');
-    botones.forEach(function (b) {
-      b.addEventListener('click', function () {
-        botones.forEach(function (o) { o.removeAttribute('aria-current'); });
-        b.setAttribute('aria-current', 'true');
-        var caja = document.createElement('div');
-        if (b.dataset.yt) {
-          caja.className = 'video';
-          caja.appendChild(ytIframe(b.dataset.yt, b.dataset.titulo, true));
-        } else {
-          caja.className = 'video video--pendiente';
-          caja.setAttribute('role', 'img');
-          caja.setAttribute('aria-label', b.dataset.titulo + ': video pendiente');
-          caja.innerHTML = '<span class="video__nota"></span>';
-          caja.querySelector('.video__nota').textContent = b.dataset.titulo + ' · video pendiente';
-        }
-        var sello = document.createElement('span');
-        sello.className = 'sello'; sello.setAttribute('aria-hidden', 'true'); sello.textContent = 'LSC';
-        caja.appendChild(sello);
-        reproductor.innerHTML = '';
-        reproductor.appendChild(caja);
-        reproductor.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      });
-    });
-  }
 })();

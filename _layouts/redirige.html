@@ -1,0 +1,15 @@
+{%- assign destino = page.destino | default: "/curso/" -%}
+{%- if page.collection == "clases" -%}{%- assign destino = "/curso/#" | append: page.slug -%}{%- endif -%}
+{%- assign destino = destino | relative_url -%}
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Redirigiendo al curso…</title>
+  <meta name="robots" content="noindex">
+  <meta http-equiv="refresh" content="0; url={{ destino }}">
+  <link rel="canonical" href="{{ destino }}">
+  <script>location.replace({{ destino | jsonify }});</script>
+</head>
+<body><p><a href="{{ destino }}">Ir al curso de LSC</a></p></body>
+</html>
