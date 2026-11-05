@@ -26,7 +26,6 @@ modulos:
 <section class="banda banda--clara">
   <div class="contenedor heroe">
     <div class="heroe__texto">
-      <span class="pildora">Bienvenida · LSC y español</span>
       <h1 class="titulo-1 titulo-1--grande">{{ s.nombre }}</h1>
       <p class="texto-grande">{{ s.descripcion }}</p>
       <div class="botones">
@@ -36,7 +35,6 @@ modulos:
     </div>
     <figure class="heroe__video">
       {% include video.html id=s.video_bienvenida titulo="Bienvenida a la Sala en LSC" %}
-      <figcaption class="texto-suave">Bienvenida a la Sala en LSC. Su texto en español es el párrafo de esta sección.</figcaption>
     </figure>
   </div>
 </section>
@@ -45,7 +43,6 @@ modulos:
   <div class="contenedor">
     <div class="seccion-intro">
       <h2 id="t-modulos" class="titulo-2">¿Qué encuentras aquí?</h2>
-      <p class="texto-suave">Cada sección inicia con un video en LSC y su texto en español.</p>
     </div>
     <ul class="rejilla-tarjetas">
       {%- for m in page.modulos %}
@@ -106,14 +103,6 @@ modulos:
         </li>
         {%- endfor %}
       </ul>
-      {%- if sala.espacio_sensorial.size > 0 %}
-      <div class="caja caja--blanca">
-        <h4 class="titulo-4">El espacio sensorial, un apoyo para todos</h4>
-        <ul class="etiquetas-lista">
-          {%- for b in sala.espacio_sensorial %}<li>{{ b }}</li>{% endfor %}
-        </ul>
-      </div>
-      {%- endif %}
     </div>
 
     {%- if sala.talleres %}
