@@ -1,5 +1,5 @@
 /* ─────────────────────────────────────────────────────────────
-   Sala de los Sentidos · UTP — hoja de estilos principal
+   Sala Conectando Sentidos · UTP — hoja de estilos principal
    Colores institucionales: azul #003D6D, blanco y negro.
    Todas las medidas de texto usan rem para que "A+ / A−" funcione.
    ───────────────────────────────────────────────────────────── */
@@ -424,6 +424,20 @@ html.alto-contraste .nav :focus-visible { outline-color: #FFE14D; }
 .ficha__datos dd { margin: .1rem 0 0; color: var(--tinta); }
 .ficha video { width: 100%; border-radius: 12px; background: var(--video); }
 
+/* ── Inicio: historia, poblaciones, talleres ────────────────── */
+.historia { background: var(--blanco); border-radius: 16px; padding: 0 1.5rem; }
+.historia__resumen { cursor: pointer; min-height: 3.5rem; display: flex; align-items: center; font-weight: 700; font-size: 1.15rem; color: var(--azul); }
+.historia__texto { display: flex; flex-direction: column; gap: .9rem; padding-bottom: 1.5rem; font-size: 1.1rem; color: var(--tinta); max-width: 48rem; }
+.seccion-intro--sin-margen { margin-bottom: 0; }
+.poblaciones { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr)); gap: 1rem; }
+.poblacion { background: var(--blanco); border-radius: 16px; padding: 1.4rem; display: flex; flex-direction: column; gap: .6rem; }
+.poblacion__apoyos { margin: 0; padding-left: 1.2rem; display: flex; flex-direction: column; gap: .35rem; }
+.poblacion__ir { margin-top: auto; font-weight: 700; }
+.caja--blanca { background: var(--blanco); }
+.etiquetas-lista { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .5rem; }
+.etiquetas-lista li { background: var(--azul-claro); border-radius: 999px; padding: .35rem .9rem; font-weight: 700; color: var(--azul); }
+.tarjeta--fija:hover { border-color: var(--borde); box-shadow: none; }
+
 /* ── Comunidad ciega ────────────────────────────────────────── */
 .lista-recursos { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 1rem; }
 .recurso { border: 2px solid var(--borde); border-radius: 16px; padding: 1.4rem; display: flex; flex-direction: column; gap: .5rem; }
@@ -460,7 +474,8 @@ html.alto-contraste .nav :focus-visible { outline-color: #FFE14D; }
 .pie__col { flex: 1 1 12rem; display: flex; flex-direction: column; gap: .6rem; }
 .pie__col--marca { flex: 1.4 1 16rem; }
 .pie__logos { display: flex; gap: .9rem; align-items: center; }
-.pie__logos img { height: 3.25rem; width: auto; }
+.pie__logos { align-self: flex-start; background: #FFFFFF; border-radius: 12px; padding: .5rem .75rem; }
+.pie__logos img { height: 3.75rem; width: auto; }
 .pie__nombre { font-size: 1.35rem; font-weight: 700; }
 .pie__suave, .pie__legal { color: var(--azul-suave); }
 .pie__titulo { font-size: 1.05rem; }
@@ -501,7 +516,7 @@ html.alto-contraste .pie__suave, html.alto-contraste .pie__legal { color: #FFFFF
   .titulo-3 { font-size: 1.5rem; }
   .texto-grande { font-size: 1.1rem; }
   .marca__logo { height: 2.6rem; }
-  .marca__logo--sala { display: none; }
+  .marca__logo:not(.marca__logo--sala) { display: none; }
   .encabezado__fila { flex-wrap: nowrap; }
   .marca { flex: 1 1 auto; }
   .marca__nombre { font-size: 1.2rem; }

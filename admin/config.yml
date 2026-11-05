@@ -1,5 +1,5 @@
 # ─────────────────────────────────────────────────────────────
-#  Panel de edición (Decap CMS) · Sala de los Sentidos
+#  Panel de edición (Decap CMS) · Sala Conectando Sentidos
 #  Funciona en tu computador con "npx decap-server" (ver README.md).
 #  Cada formulario escribe en los archivos de _data/, _clases/ y _senas/.
 #  Después revisas y subes los cambios con git (add, commit, push).
@@ -217,6 +217,7 @@ collections:
           - { label: "Nombre", name: nombre, widget: string }
           - { label: "Institución", name: institucion, widget: string }
           - { label: "Dependencia", name: dependencia, widget: string }
+          - { label: "Nombre completo de la dependencia", name: dependencia_completa, widget: string }
           - { label: "Descripción corta (Inicio)", name: descripcion, widget: text }
           - { label: "Ubicación", name: ubicacion, widget: string }
           - { label: "Correo", name: correo, widget: string }
@@ -230,6 +231,39 @@ collections:
           - { label: "Video «¿Qué es la Sala?» (YouTube)", name: video_que_es, widget: string, required: false }
           - { label: "Texto «¿Qué es la Sala?»", name: texto_que_es, widget: text }
           - { label: "Última actualización (texto libre)", name: ultima_actualizacion, widget: string, required: false }
+
+      - label: "La Sala: historia y acompañamientos"
+        name: sala
+        file: _data/sala.yml
+        fields:
+          - label: "Historia (párrafos)"
+            name: historia
+            widget: list
+            field: { label: "Párrafo", name: parrafo, widget: text }
+          - label: "A quién acompañamos"
+            name: poblaciones
+            widget: list
+            label_singular: población
+            summary: "{{fields.titulo}}"
+            fields:
+              - { label: "Título", name: titulo, widget: string }
+              - { label: "Descripción corta", name: texto, widget: string, required: false }
+              - { label: "Página de la sección (opcional)", name: url, widget: string, required: false, hint: "Ej.: /comunidad-sorda/" }
+              - { label: "Apoyos que ofrece la Sala", name: apoyos, widget: list }
+          - { label: "Beneficios del espacio sensorial", name: espacio_sensorial, widget: list }
+          - label: "Talleres de formación"
+            name: talleres
+            widget: object
+            fields:
+              - { label: "Texto", name: texto, widget: text }
+              - label: "Talleres"
+                name: items
+                widget: list
+                summary: "{{fields.titulo}}"
+                fields:
+                  - { label: "Título", name: titulo, widget: string }
+                  - { label: "Descripción", name: texto, widget: string, required: false }
+                  - { label: "Página con los contenidos (opcional)", name: url, widget: string, required: false }
 
       - label: "Menú y señas del menú"
         name: menu

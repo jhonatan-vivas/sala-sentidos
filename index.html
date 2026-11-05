@@ -65,7 +65,7 @@ modulos:
   <div class="contenedor pila-grande">
     <div class="bilingue">
       <div class="bilingue__video">
-        {% include video.html id=s.video_que_es titulo="¿Qué es la Sala de los Sentidos?" %}
+        {% include video.html id=s.video_que_es titulo="¿Qué es la Sala Conectando Sentidos?" %}
       </div>
       <div class="bilingue__texto">
         <h2 id="t-sala" class="titulo-2 color-azul">¿Qué es la {{ s.nombre }}?</h2>
@@ -76,6 +76,73 @@ modulos:
         </dl>
       </div>
     </div>
+
+    {%- assign sala = site.data.sala %}
+    {%- if sala.historia.size > 0 %}
+    <details class="historia">
+      <summary class="historia__resumen">Conoce la historia de la Sala</summary>
+      <div class="historia__texto">
+        {%- for p in sala.historia %}
+        <p>{{ p }}</p>
+        {%- endfor %}
+      </div>
+    </details>
+    {%- endif %}
+
+    <div class="pila">
+      <div class="seccion-intro seccion-intro--sin-margen">
+        <h3 class="titulo-3">A quién acompañamos</h3>
+        <p class="texto-suave">La Sala acompaña a estudiantes con distintas condiciones y estilos de aprendizaje.</p>
+      </div>
+      <ul class="poblaciones">
+        {%- for po in sala.poblaciones %}
+        <li class="poblacion">
+          <h4 class="titulo-4 color-azul">{{ po.titulo }}</h4>
+          {%- if po.texto and po.texto != "" %}<p class="texto-suave">{{ po.texto }}</p>{% endif %}
+          <ul class="poblacion__apoyos">
+            {%- for a in po.apoyos %}<li>{{ a }}</li>{% endfor %}
+          </ul>
+          {%- if po.url and po.url != "" %}<a class="poblacion__ir" href="{{ po.url | relative_url }}">Ir a la sección <span aria-hidden="true">→</span></a>{% endif %}
+        </li>
+        {%- endfor %}
+      </ul>
+      {%- if sala.espacio_sensorial.size > 0 %}
+      <div class="caja caja--blanca">
+        <h4 class="titulo-4">El espacio sensorial, un apoyo para todos</h4>
+        <ul class="etiquetas-lista">
+          {%- for b in sala.espacio_sensorial %}<li>{{ b }}</li>{% endfor %}
+        </ul>
+      </div>
+      {%- endif %}
+    </div>
+
+    {%- if sala.talleres %}
+    <div class="pila">
+      <div class="seccion-intro seccion-intro--sin-margen">
+        <h3 class="titulo-3">Talleres de formación</h3>
+        <p class="texto-grande">{{ sala.talleres.texto }}</p>
+      </div>
+      <ul class="rejilla-tarjetas">
+        {%- for t in sala.talleres.items %}
+        <li>
+          {%- if t.url and t.url != "" %}
+          <a class="tarjeta" href="{{ t.url | relative_url }}">
+            <span class="tarjeta__titulo">{{ t.titulo }}</span>
+            <span class="tarjeta__texto">{{ t.texto }}</span>
+            <span class="tarjeta__ir">Ver contenidos →</span>
+          </a>
+          {%- else %}
+          <div class="tarjeta tarjeta--fija">
+            <span class="tarjeta__titulo">{{ t.titulo }}</span>
+            <span class="tarjeta__texto">{{ t.texto }}</span>
+            <span class="tarjeta__ir texto-suave">Pregunta en la Sala por las inscripciones</span>
+          </div>
+          {%- endif %}
+        </li>
+        {%- endfor %}
+      </ul>
+    </div>
+    {%- endif %}
 
     {%- assign personas = site.data.equipo.personas -%}
     {%- assign grupos = personas | group_by: "grupo" -%}

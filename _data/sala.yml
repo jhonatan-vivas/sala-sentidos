@@ -1,0 +1,55 @@
+# Contenido institucional de la Sala (fuente: Reseña histórica de la Sala Conectando Sentidos).
+# Se edita desde el panel: Configuración › La Sala: historia y acompañamientos
+
+historia:
+  - "La Sala Conectando Sentidos surgió en 2017 por iniciativa de la profesional Martha Lucía Villabona, como un proyecto articulado entre diferentes dependencias de la universidad. A partir de diagnósticos sobre las necesidades de los estudiantes, se vio la importancia de crear un espacio especializado basado en la integración de los sentidos."
+  - "Con el tiempo se consolidó como un espacio pedagógico y terapéutico, con herramientas para estimular la vista, el oído, el tacto, el olfato y la propiocepción. Hoy es un referente institucional en inclusión y atención diferencial, y apoya procesos académicos, psicosociales y de orientación para estudiantes, docentes y personal administrativo."
+  - "La Sala sigue incorporando nuevas metodologías, tecnologías y enfoques interdisciplinarios, como parte del compromiso de la UTP con la formación integral, la equidad y el respeto por la diversidad."
+
+# A quién acompaña la Sala. "url" es opcional: si la población tiene su propia sección.
+poblaciones:
+  - titulo: Comunidad Sorda
+    texto: Estudiantes sordos o con hipoacusia.
+    url: /comunidad-sorda/
+    apoyos:
+      - Intérpretes de Lengua de Señas Colombiana en espacios académicos.
+      - Mediación comunicativa con docentes y dependencias.
+      - Sensibilización y cursos de LSC para la comunidad.
+  - titulo: Comunidad ciega y con baja visión
+    texto: Estudiantes con discapacidad visual.
+    url: /comunidad-ciega/
+    apoyos:
+      - Materiales accesibles en braille, audio y formatos digitales.
+      - Herramientas tiflológicas y tecnologías de apoyo.
+      - Monitores y orientación en movilidad por el campus.
+  - titulo: Estudiantes con TDAH
+    texto: Trastorno por déficit de atención e hiperactividad.
+    url: ""
+    apoyos:
+      - Acompañamiento psicosocial y en autorregulación.
+      - Orientación en manejo del tiempo y técnicas de estudio.
+      - Seguimiento y flexibilización académica según cada caso.
+  - titulo: Estudiantes con trastornos del aprendizaje
+    texto: Como dislexia, disgrafía o discalculia.
+    url: ""
+    apoyos:
+      - Adaptaciones pedagógicas y evaluativas.
+      - Refuerzo en lectura, escritura y cálculo.
+      - Herramientas tecnológicas y acompañamiento personalizado.
+
+# Lo que el espacio sensorial ofrece a todas las poblaciones
+espacio_sensorial:
+  - Estimulación sensorial controlada
+  - Regulación emocional
+  - Mejor concentración
+  - Menos estrés y ansiedad
+
+talleres:
+  texto: "La Sala ofrece talleres de sensibilización en Lengua de Señas Colombiana y en sistema braille, para que la comunidad universitaria se acerque a otras formas de comunicación accesible. Son cursos de 40 horas por semestre."
+  items:
+    - titulo: Taller de Lengua de Señas Colombiana
+      texto: Cuatro niveles con videos, materiales y actividades.
+      url: /curso/
+    - titulo: Taller de sistema braille
+      texto: Lectura y escritura en braille para la comunidad universitaria.
+      url: ""

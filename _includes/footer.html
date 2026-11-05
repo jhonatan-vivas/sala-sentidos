@@ -4,10 +4,10 @@
     <div class="pie__col pie__col--marca">
       <div class="pie__logos">
         <img src="{{ s.logo_utp_blanco | relative_url }}" alt="{{ s.institucion }}">
-        <img src="{{ s.logo_sala_blanco | relative_url }}" alt="">
+        <img src="{{ s.logo_sala_blanco | relative_url }}" alt="Logo de la {{ s.nombre }}">
       </div>
       <span class="pie__nombre">{{ s.nombre }}</span>
-      <span class="pie__suave">{{ s.dependencia }} · {{ s.institucion }}</span>
+      <span class="pie__suave">{{ s.dependencia_completa | default: s.dependencia }} · {{ s.institucion }}</span>
       {%- if s.youtube_canal and s.youtube_canal != "" %}
       <a href="{{ s.youtube_canal }}" rel="noopener">Canal de YouTube de la Sala <span aria-hidden="true">↗</span></a>
       {%- endif %}

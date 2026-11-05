@@ -1,4 +1,4 @@
-/* Sala de los Sentidos · UTP — comportamiento común a todas las páginas */
+/* Sala Conectando Sentidos · UTP — comportamiento común a todas las páginas */
 (function () {
   'use strict';
 

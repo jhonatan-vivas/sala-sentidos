@@ -1,6 +1,6 @@
-# Portal Sala de los Sentidos · UTP
+# Portal Sala Conectando Sentidos · UTP
 
-Sitio web de la Sala de los Sentidos (VRSBU, Universidad Tecnológica de Pereira).
+Sitio web de la Sala Conectando Sentidos (VRSBU, Universidad Tecnológica de Pereira).
 Está hecho con **Jekyll**, que **GitHub Pages compila solo**: no hay servidor ni base de datos.
 El contenido vive en archivos de texto (`.yml` y `.md`). Se pueden editar a mano o con el **panel de edición** (Decap CMS).
 
@@ -8,23 +8,23 @@ El contenido vive en archivos de texto (`.yml` y `.md`). Se pueden editar a mano
 
 ## 1. Publicarlo en GitHub Pages (una sola vez)
 
-1. Crea un repositorio en GitHub, por ejemplo `sala-de-los-sentidos`.
+1. Crea un repositorio en GitHub, por ejemplo `sala-sentidos`.
 2. Descomprime el .zip en una carpeta y súbelo con Git Bash:
    ```bash
-   cd sala-de-los-sentidos
+   cd sala-sentidos
    git init
    git add .
    git commit -m "Primera versión del portal"
    git branch -M main
-   git remote add origin https://github.com/USUARIO/sala-de-los-sentidos.git
+   git remote add origin https://github.com/USUARIO/sala-sentidos.git
    git push -u origin main
    ```
 3. En GitHub, ve a **Settings › Pages**. En *Source* elige **Deploy from a branch**, rama **main**, carpeta **/ (root)**.
 4. Antes de subir, abre estos dos archivos y cambia `USUARIO` por tu usuario de GitHub:
    - `_config.yml` → `url: "https://USUARIO.github.io"`. Si el repositorio tiene otro nombre, cambia también `baseurl`.
-   - `admin/config.yml` → `repo: USUARIO/sala-de-los-sentidos`.
+   - `admin/config.yml` → `repo: USUARIO/sala-sentidos`.
 
-El sitio queda en `https://USUARIO.github.io/sala-de-los-sentidos/`. Después de cada `git push`, GitHub lo actualiza solo en 1 o 2 minutos.
+El sitio queda en `https://USUARIO.github.io/sala-sentidos/`. Después de cada `git push`, GitHub lo actualiza solo en 1 o 2 minutos.
 
 ---
 
@@ -111,7 +111,7 @@ El paso 2 sirve para editar. Para ver el sitio ya armado antes de subirlo, neces
    bundle install
    bundle exec jekyll serve
    ```
-3. Abre `http://localhost:4000/sala-de-los-sentidos/`.
+3. Abre `http://localhost:4000/sala-sentidos/`.
 
 Si no quieres instalar Ruby, puedes subir los cambios y revisarlos en GitHub Pages.
 
