@@ -33,9 +33,11 @@
 {%- endif %}
 
 <div class="fila-cajas">
-  {%- if c.materiales.size > 0 %}
   <section class="caja caja--clara">
     <h4 class="titulo-4">Material de la clase</h4>
+    {%- if c.materiales.size == 0 %}
+    <p class="texto-suave">Esta clase todavía no tiene material publicado.</p>
+    {%- else %}
     <ul class="lista-material">
       {%- for m in c.materiales %}
       <li>
@@ -47,16 +49,18 @@
       </li>
       {%- endfor %}
     </ul>
+    {%- endif %}
   </section>
-  {%- endif %}
 
-  {%- if c.actividad.url and c.actividad.url != "" %}
   <section class="caja caja--azul">
     <h4 class="titulo-4">Actividad</h4>
     {%- if c.actividad.instruccion and c.actividad.instruccion != "" %}<p>{{ c.actividad.instruccion }}</p>{% endif %}
+    {%- if c.actividad.url and c.actividad.url != "" %}
     <a class="boton boton--blanco" href="{{ c.actividad.url }}" target="_blank" rel="noopener">Ir a la actividad <span aria-hidden="true">↗</span><span class="sr">(abre en otra pestaña)</span></a>
+    {%- else %}
+    <p class="caja__pendiente">La actividad se publicará pronto.</p>
+    {%- endif %}
   </section>
-  {%- endif %}
 </div>
 
 <nav class="anterior-siguiente" aria-label="Otras clases">

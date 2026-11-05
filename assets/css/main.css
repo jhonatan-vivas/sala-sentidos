@@ -365,6 +365,7 @@ html.alto-contraste .nav :focus-visible { outline-color: #FFE14D; }
 .caja--azul { background: var(--azul); color: #FFFFFF; }
 .caja--azul p { color: #DCE7F1; }
 .caja--azul .boton { align-self: flex-start; margin-top: auto; }
+.caja__pendiente { margin-top: auto; font-weight: 700; color: #FFFFFF !important; border: 2px dashed rgba(255,255,255,.6); border-radius: 10px; padding: .75rem 1rem; }
 .caja--borde { border: 2px solid var(--borde); }
 .caja--azul :focus-visible { outline-color: #FFFFFF; }
 .lista-material { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: .6rem; }
