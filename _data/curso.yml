@@ -1,10 +1,11 @@
 bienvenida_video: ""
-bienvenida_texto: >-
-  ¡Te damos la bienvenida al curso de Lengua de Señas Colombiana (LSC) de la
-  Universidad Tecnológica de Pereira!
-
-
-  En este espacio descubrirás una lengua visual, corporal y espacial que representa la identidad y la riqueza cultural de la comunidad sorda colombiana. A través de contenidos y ejercicios prácticos, desarrollarás progresivamente habilidades comunicativas que te permitirán acercarte a nuevas formas de interacción y contribuir a la construcción de entornos más accesibles e incluyentes. ¡Anímate a aprender y comunicarte de una manera diferente!
+bienvenida_texto: En este espacio descubrirás una lengua visual, corporal y
+  espacial que representa la identidad y la riqueza cultural de la comunidad
+  sorda colombiana. A través de contenidos y ejercicios prácticos, desarrollarás
+  progresivamente habilidades comunicativas que te permitirán acercarte a nuevas
+  formas de interacción y contribuir a la construcción de entornos más
+  accesibles e incluyentes. ¡Anímate a aprender y comunicarte de una manera
+  diferente!
 niveles:
   - numero: 1
     descripcion: ""
