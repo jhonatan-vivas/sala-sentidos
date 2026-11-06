@@ -1,33 +1,64 @@
-# Equipo de la Sala. Los grupos aparecen en el orden en que se mencionan por primera vez.
-# foto: opcional (sube la imagen desde el panel). video_lsc: opcional (enlace o ID de YouTube).
 personas:
-  - nombre: "[Nombre]"
+  - nombre: Martha Lucía Villabona Bayona
+    rol: Supervisora de Inclusión
+    grupo: Coordinación
+  - nombre: Sebastián Jiménez Agudelo
     rol: Responsable de la Sala
     grupo: Coordinación
     foto: ""
     video_lsc: ""
-  - nombre: "[Nombre]"
+  - nombre: David Arango
     rol: Intérprete y traductor LSC–español
     grupo: Intérpretes de LSC
     foto: ""
     video_lsc: ""
-  - nombre: "[Nombre]"
+  - nombre: Paula Correa
     rol: Intérprete LSC–español
     grupo: Intérpretes de LSC
     foto: ""
     video_lsc: ""
-  - nombre: "[Nombre]"
+  - nombre: Yeiny Pulgarin
+    rol: Intérprete LSC–español
+    grupo: Intérpretes de LSC
+  - rol: Intérprete LSC–español
+    grupo: Intérpretes de LSC
+    nombre: Daniel Manosalva
+  - rol: Intérprete LSC–español
+    grupo: Intérpretes de LSC
+    nombre: Diana Alejandra Giraldo
+  - rol: Intérprete LSC–español
+    grupo: Intérpretes de LSC
+    nombre: Viviana Parra
+  - rol: Intérprete LSC–español
+    grupo: Intérpretes de LSC
+    nombre: Alejandra Cardona
+  - nombre: Ana Lucia Arias
     rol: Docente del curso de LSC
     grupo: Docentes del curso de LSC
     foto: ""
     video_lsc: ""
-  - nombre: "[Nombre]"
+  - nombre: Paula Correa
+    rol: Docente de la Electiva de LSC y Educación Inclusiva
+    grupo: Docentes del curso de LSC
+  - nombre: Cristy Yarledy Ramirez
     rol: Tiflóloga
     grupo: Apoyo a la comunidad ciega
     foto: ""
     video_lsc: ""
-  - nombre: "[Nombre]"
-    rol: Monitor(a)
+  - nombre: Sandra Patricia Montoya
+    rol: Monitora de LSC
     grupo: Monitores
     foto: ""
     video_lsc: ""
+  - rol: Monitora de LSC
+    grupo: Monitores
+    nombre: Yenifer Chaurra Vargas
+  - rol: Monitor de LSC
+    grupo: Monitores
+    nombre: Michael Rodriguez
+  - nombre: Maria Fernanda
+    rol: Monitora de Sala
+    grupo: Monitores
+  - nombre: Nadia Soriano
+    rol: Monitora de Sala
+    grupo: Monitores
