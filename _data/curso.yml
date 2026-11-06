@@ -1,7 +1,16 @@
-# Bienvenida del curso y descripción de cada nivel.
-# Las clases están en la carpeta _clases/ (una clase = un archivo).
 bienvenida_video: ""
-bienvenida_texto: "[Texto en español equivalente al video de bienvenida: a quién va dirigido el curso, cómo se organizan los cuatro niveles y cómo usar cada clase.]"
+bienvenida_texto: ¡Te damos la bienvenida al curso de Lengua de Señas Colombiana
+  (LSC) de la Universidad Tecnológica de Pereira! Este espacio de aprendizaje
+  está pensado para acercarte a una lengua que se construye desde la experiencia
+  visual, corporal y espacial, y que representa una parte fundamental de la
+  identidad y la cultura de la comunidad sorda colombiana. A lo largo de sus
+  diferentes niveles, encontrarás contenidos, explicaciones y ejercicios
+  prácticos que te permitirán desarrollar progresivamente habilidades para
+  comprender y utilizar la LSC en distintos contextos comunicativos. Más que
+  aprender un conjunto de señas, descubrirás otras formas de relacionarte,
+  reconocer la diversidad lingüística y contribuir a la construcción de entornos
+  más accesibles e incluyentes. ¡Anímate a explorar, aprender y conectar a
+  través de tus manos!
 niveles:
   - numero: 1
     descripcion: ""
