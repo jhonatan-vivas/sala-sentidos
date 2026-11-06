@@ -59,7 +59,7 @@ El panel es una página con formularios. Lo que llenas se guarda directamente en
 
 | Panel | Archivo | Para qué |
 |---|---|---|
-| Curso · Clases | `_clases/*.md` | Una clase por archivo: nivel, número, tema, **varios videos**, materiales y actividad. |
+| Curso · Clases | `_clases/*.md` | Una clase por archivo: nivel, número, tema y **varios videos**. |
 | Repositorio · Señas | `_senas/*.md` | Una seña por archivo: término, área, subárea, video, contexto, variantes y validación. |
 | Secciones › Curso de LSC | `_data/curso.yml` | Video y texto de bienvenida, descripción de cada nivel. |
 | Secciones › Comunidad Sorda | `_data/comunidad_sorda.yml` | Bienvenida, categorías, videos y podcast. |
@@ -86,7 +86,6 @@ assets/uploads/        otros archivos que subas desde el panel
 - **Logos:** si son `.png`, cambia la extensión en *Configuración › Datos de la Sala*.
 - **Clips del menú:** `.mp4` sin audio, unos 480 px de ancho, idealmente menos de 500 KB. Si un clip falta, el sitio muestra "La seña estará disponible pronto".
 - **Videos de clases, señas y Comunidad Sorda:** se quedan en **YouTube** (canal de la Sala; pueden ser *no listados*). En el panel pega el enlace completo (`https://youtu.be/…` o `https://www.youtube.com/watch?v=…`) o solo el ID. El sitio extrae el ID solo.
-- **PDF y actividades:** pega el enlace (Drive, Classroom, Forms, etc.).
 
 ---
 

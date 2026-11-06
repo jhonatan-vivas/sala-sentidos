@@ -31,7 +31,7 @@ collections:
   - name: clases
     label: "Curso · Clases"
     label_singular: Clase
-    description: "Cada clase pertenece a un nivel (1 a 4). Puedes agregar varios videos, materiales y una actividad."
+    description: "Cada clase pertenece a un nivel (1 a 4). Puedes agregar varios videos por clase."
     folder: _clases
     extension: md
     format: frontmatter
@@ -60,23 +60,6 @@ collections:
           - { label: "Título", name: titulo, widget: string, default: "Explicación" }
           - { label: "Enlace o ID de YouTube", name: youtube, widget: string, required: false, hint: "Pega el enlace completo (https://youtu.be/...) o solo el ID." }
           - { label: "Duración (opcional)", name: duracion, widget: string, required: false, hint: "Ej.: 04:30" }
-      - label: "Material de la clase"
-        name: materiales
-        widget: list
-        label_singular: material
-        required: false
-        summary: "{{fields.tipo}} · {{fields.nombre}}"
-        fields:
-          - { label: "Nombre", name: nombre, widget: string }
-          - { label: "Tipo", name: tipo, widget: select, options: [PDF, Presentación, Documento, Video, Enlace], default: PDF }
-          - { label: "Enlace", name: url, widget: string, required: false, pattern: ['^(https?://.+)?$', "Debe empezar por http:// o https://"] }
-      - label: "Actividad"
-        name: actividad
-        widget: object
-        required: false
-        fields:
-          - { label: "Instrucción breve", name: instruccion, widget: text, required: false }
-          - { label: "Enlace a la actividad", name: url, widget: string, required: false, pattern: ['^(https?://.+)?$', "Debe empezar por http:// o https://"] }
 
   # ── 2. Repositorio de señas: una seña por archivo ──────────
   - name: senas
