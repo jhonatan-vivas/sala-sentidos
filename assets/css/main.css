@@ -443,7 +443,11 @@ html.alto-contraste .nav :focus-visible { outline-color: #FFE14D; }
 /* ── Inicio: historia, poblaciones, talleres ────────────────── */
 .historia { background: var(--blanco); border-radius: 16px; padding: 0 1.5rem; }
 .historia__resumen { cursor: pointer; min-height: 3.5rem; display: flex; align-items: center; font-weight: 700; font-size: 1.15rem; color: var(--azul); }
-.historia__texto { display: flex; flex-direction: column; gap: .9rem; padding-bottom: 1.5rem; font-size: 1.1rem; color: var(--tinta); max-width: 48rem; }
+.historia__cuerpo { display: flex; flex-wrap: wrap; gap: 2rem; align-items: flex-start; padding-bottom: 1.5rem; }
+.historia__texto { flex: 1 1 26rem; min-width: 0; display: flex; flex-direction: column; gap: .9rem; font-size: 1.1rem; color: var(--tinta); }
+.historia__foto { flex: 0 1 16rem; min-width: 12rem; margin: 0; display: flex; flex-direction: column; gap: .5rem; }
+.historia__foto img { width: 100%; height: auto; border-radius: 14px; }
+.historia__foto figcaption { font-size: .9rem; color: var(--gris); }
 .seccion-intro--sin-margen, .banda .seccion-intro--sin-margen { margin-bottom: 0; padding-block: 0; }
 .talleres { display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; }
 .talleres__intro { flex: 1 1 22rem; min-width: 0; display: flex; flex-direction: column; gap: .75rem; }

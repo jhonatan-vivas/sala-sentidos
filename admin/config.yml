@@ -219,6 +219,8 @@ collections:
         name: sala
         file: _data/sala.yml
         fields:
+          - { label: "Foto de la historia (opcional)", name: historia_foto, widget: image, required: false, media_folder: /assets/img/sala, public_folder: /assets/img/sala }
+          - { label: "Pie de la foto", name: historia_foto_pie, widget: string, required: false, hint: "Ej.: Nombre, cargo o rol." }
           - label: "Historia (párrafos)"
             name: historia
             widget: list

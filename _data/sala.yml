@@ -1,6 +1,10 @@
 # Contenido institucional de la Sala (fuente: Reseña histórica de la Sala Conectando Sentidos).
 # Se edita desde el panel: Configuración › La Sala: historia y acompañamientos
 
+# Foto que acompaña la historia (opcional) y su pie de foto
+historia_foto: /assets/img/sala/martha-lucia-villabona.jpg
+historia_foto_pie: Martha Lucía Villabona, impulsora de la Sala Conectando Sentidos.
+
 historia:
   - "La Sala Conectando Sentidos surgió en 2017 por iniciativa de la profesional Martha Lucía Villabona, como un proyecto articulado entre diferentes dependencias de la universidad. A partir de diagnósticos sobre las necesidades de los estudiantes, se vio la importancia de crear un espacio especializado basado en la integración de los sentidos."
   - "Con el tiempo se consolidó como un espacio pedagógico y terapéutico, con herramientas para estimular la vista, el oído, el tacto, el olfato y la propiocepción. Hoy es un referente institucional en inclusión y atención diferencial, y apoya procesos académicos, psicosociales y de orientación para estudiantes, docentes y personal administrativo."

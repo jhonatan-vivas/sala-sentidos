@@ -78,10 +78,18 @@ modulos:
     {%- if sala.historia.size > 0 %}
     <details class="historia">
       <summary class="historia__resumen">Conoce la historia de la Sala</summary>
-      <div class="historia__texto">
-        {%- for p in sala.historia %}
-        <p>{{ p }}</p>
-        {%- endfor %}
+      <div class="historia__cuerpo">
+        <div class="historia__texto">
+          {%- for p in sala.historia %}
+          <p>{{ p }}</p>
+          {%- endfor %}
+        </div>
+        {%- if sala.historia_foto and sala.historia_foto != "" %}
+        <figure class="historia__foto">
+          <img src="{{ sala.historia_foto | relative_url }}" alt="Retrato de {{ sala.historia_foto_pie | split: ',' | first }}" loading="lazy" width="640" height="799">
+          {%- if sala.historia_foto_pie and sala.historia_foto_pie != "" %}<figcaption>{{ sala.historia_foto_pie }}</figcaption>{% endif %}
+        </figure>
+        {%- endif %}
       </div>
     </details>
     {%- endif %}
