@@ -13,11 +13,5 @@ videos:
   - titulo: Municipios de Risaralda
     youtube: https://youtu.be/Jldq-BETM0g?si=wriDpku8y4UEUPUW
     duracion: 01:01
-  - titulo: Lugares y Afines
-    youtube: https://youtu.be/0vyXqgtZPcU?si=yeWKEGB18c4CziUo
-    duracion: 01:14
-  - titulo: Medios de Transporte
-    youtube: https://youtu.be/JF2QwQrN3oU?si=kOWvJa0sEj39mlbG
-    duracion: 01:23
 materiales: []
 ---
