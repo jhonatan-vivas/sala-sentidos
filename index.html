@@ -146,17 +146,17 @@ seccion: inicio
         <p class="texto-suave">Si el horario cambia, aquí aparece el aviso.</p>
         {%- endif %}
       </div>
-      <div class="tabla-caja">
-        <table class="tabla">
-          <caption class="sr">Horarios de atención de la Sala</caption>
-          <thead><tr><th scope="col">Día</th><th scope="col">Mañana</th><th scope="col">Tarde</th></tr></thead>
-          <tbody>
-            {%- for d in h.dias %}
-            <tr><th scope="row">{{ d.dia }}</th><td>{{ d.manana | default: "—" }}</td><td>{{ d.tarde | default: "—" }}</td></tr>
-            {%- endfor %}
-          </tbody>
-        </table>
-      </div>
+      <ul class="dias" aria-label="Horario por día">
+        {%- for d in h.dias %}
+        <li class="dia">
+          <span class="dia__nombre">{{ d.dia }}</span>
+          <dl class="dia__franjas">
+            <div><dt>Mañana</dt><dd>{{ d.manana | default: "—" }}</dd></div>
+            <div><dt>Tarde</dt><dd>{{ d.tarde | default: "—" }}</dd></div>
+          </dl>
+        </li>
+        {%- endfor %}
+      </ul>
     </div>
   </div>
 </section>

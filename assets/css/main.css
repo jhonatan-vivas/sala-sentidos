@@ -445,6 +445,18 @@ html.alto-contraste .nav :focus-visible { outline-color: #FFE14D; }
 #sala .bilingue { align-items: flex-start; }
 #sala .bilingue__video { padding-top: .5rem; }
 
+#sala { padding-bottom: 3rem; }
+/* Horarios por día */
+.horarios { flex-direction: column; gap: 1.25rem !important; }
+.horarios .horarios__intro { flex: none; }
+.horarios .dias { width: 100%; }
+.dias { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(10.5rem, 1fr)); gap: .9rem; }
+.dia { background: var(--blanco); border-radius: 14px; padding: 1.1rem 1.2rem; display: flex; flex-direction: column; gap: .7rem; border-top: 4px solid var(--azul); }
+.dia__nombre { font-weight: 700; font-size: 1.15rem; color: var(--azul); }
+.dia__franjas { margin: 0; display: flex; flex-direction: column; gap: .5rem; }
+.dia__franjas dt { font-size: .8rem; font-weight: 700; color: var(--gris); text-transform: uppercase; letter-spacing: .04em; }
+.dia__franjas dd { margin: 0; font-size: 1.05rem; font-variant-numeric: tabular-nums; }
+
 /* ── Inicio: historia, poblaciones, talleres ────────────────── */
 .historia { background: var(--blanco); border-radius: 16px; padding: 0 1.5rem; }
 .historia__resumen { cursor: pointer; min-height: 3.5rem; display: flex; align-items: center; font-weight: 700; font-size: 1.15rem; color: var(--azul); }
@@ -499,12 +511,17 @@ html.alto-contraste .nav :focus-visible { outline-color: #FFE14D; }
 .pie { background: var(--azul); color: #FFFFFF; margin-top: 0; }
 .pie a { color: #FFFFFF; }
 .pie :focus-visible { outline-color: #FFFFFF; }
-.pie__fila { display: flex; flex-wrap: wrap; gap: 2.5rem; padding-block: 3.5rem 2.5rem; }
+.pie__fila { display: flex; flex-wrap: wrap; gap: 2.5rem; padding-block: 3rem 2rem; }
+.pie__col { gap: .45rem !important; }
 .pie__col { flex: 1 1 12rem; display: flex; flex-direction: column; gap: .6rem; }
 .pie__col--marca { flex: 1.4 1 16rem; }
 .pie__logos { display: flex; gap: .9rem; align-items: center; }
-.pie__logos { align-self: flex-start; background: #FFFFFF; border-radius: 12px; padding: .5rem .75rem; }
-.pie__logos img { height: 3.75rem; width: auto; }
+.pie__logos { display: flex; align-items: center; gap: 1.1rem; margin-bottom: .4rem; }
+.pie__logos img:first-child { height: 2.9rem; width: auto; }
+.pie__logos img + img { height: 4.25rem; width: 4.25rem; padding-left: 1.1rem; border-left: 1px solid rgba(255,255,255,.35); box-sizing: content-box; }
+.pie a { text-decoration: none; }
+.pie a:hover { text-decoration: underline; }
+.pie__col a, .pie__col span:not(.pie__nombre) { line-height: 1.5; }
 .pie__nombre { font-size: 1.35rem; font-weight: 700; }
 .pie__suave, .pie__legal { color: var(--azul-suave); }
 .pie__titulo { font-size: 1.05rem; }
