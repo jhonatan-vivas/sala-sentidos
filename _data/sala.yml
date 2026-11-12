@@ -57,8 +57,8 @@ talleres:
   texto: "La Sala ofrece talleres de sensibilización en Lengua de Señas Colombiana y en sistema braille, para que la comunidad universitaria se acerque a otras formas de comunicación accesible. Son cursos de 40 horas por semestre."
   items:
     - titulo: Taller de Lengua de Señas Colombiana
-      texto: Cuatro niveles con los videos en LSC de cada clase.
-      url: /curso/
+      texto: Sensibilización en Lengua de Señas Colombiana para la comunidad universitaria.
+      inscripcion: ""   # enlace del formulario de inscripción
     - titulo: Taller de sistema braille
       texto: Lectura y escritura en braille para la comunidad universitaria.
-      url: ""
+      inscripcion: ""   # enlace del formulario de inscripción

@@ -249,7 +249,7 @@ collections:
                 fields:
                   - { label: "Título", name: titulo, widget: string }
                   - { label: "Descripción", name: texto, widget: string, required: false }
-                  - { label: "Página con los contenidos (opcional)", name: url, widget: string, required: false }
+                  - { label: "Enlace del formulario de inscripción", name: inscripcion, widget: string, required: false, hint: "Mientras esté vacío, la tarjeta dice «Inscripciones próximamente»." }
 
       - label: "Menú y señas del menú"
         name: menu

@@ -64,20 +64,13 @@ seccion: inicio
         <div class="bilingue__texto">
           <h3 class="titulo-3">A quién acompañamos</h3>
           <p class="texto-grande">{{ sala.acompanamos_texto | default: "La Sala acompaña a estudiantes con distintas condiciones y estilos de aprendizaje." }}</p>
+          <ul class="lista-poblaciones">
+            {%- for po in sala.poblaciones %}
+            <li>{% if po.url and po.url != "" %}<a href="{{ po.url | relative_url }}">{{ po.titulo }}</a>{% else %}<span>{{ po.titulo }}</span>{% endif %}</li>
+            {%- endfor %}
+          </ul>
         </div>
       </div>
-      <ul class="poblaciones">
-        {%- for po in sala.poblaciones %}
-        <li class="poblacion">
-          <h4 class="titulo-4 color-azul">{{ po.titulo }}</h4>
-          {%- if po.texto and po.texto != "" %}<p class="texto-suave">{{ po.texto }}</p>{% endif %}
-          <ul class="poblacion__apoyos">
-            {%- for a in po.apoyos %}<li>{{ a }}</li>{% endfor %}
-          </ul>
-          {%- if po.url and po.url != "" %}<a class="poblacion__ir" href="{{ po.url | relative_url }}">Ir a la sección <span aria-hidden="true">→</span></a>{% endif %}
-        </li>
-        {%- endfor %}
-      </ul>
     </div>
 
     {%- if sala.talleres %}
@@ -94,19 +87,15 @@ seccion: inicio
       <ul class="talleres__lista">
         {%- for t in sala.talleres.items %}
         <li>
-          {%- if t.url and t.url != "" %}
-          <a class="tarjeta" href="{{ t.url | relative_url }}">
+          <div class="tarjeta tarjeta--fija tarjeta--taller">
             <span class="tarjeta__titulo">{{ t.titulo }}</span>
-            <span class="tarjeta__texto">{{ t.texto }}</span>
-            <span class="tarjeta__ir">Ver contenidos →</span>
-          </a>
-          {%- else %}
-          <div class="tarjeta tarjeta--fija">
-            <span class="tarjeta__titulo">{{ t.titulo }}</span>
-            <span class="tarjeta__texto">{{ t.texto }}</span>
-            <span class="tarjeta__ir texto-suave">Pregunta en la Sala por las inscripciones</span>
+            {%- if t.texto and t.texto != "" %}<span class="tarjeta__texto">{{ t.texto }}</span>{% endif %}
+            {%- if t.inscripcion and t.inscripcion != "" %}
+            <a class="boton tarjeta__boton" href="{{ t.inscripcion }}" target="_blank" rel="noopener">Inscribirme <span aria-hidden="true">↗</span><span class="sr">(formulario de inscripción al {{ t.titulo }}, abre en otra pestaña)</span></a>
+            {%- else %}
+            <span class="tarjeta__pendiente">Inscripciones próximamente</span>
+            {%- endif %}
           </div>
-          {%- endif %}
         </li>
         {%- endfor %}
       </ul>

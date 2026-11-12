@@ -486,6 +486,20 @@ html.alto-contraste .nav :focus-visible { outline-color: #FFE14D; }
 .etiquetas-lista li { background: var(--azul-claro); border-radius: 999px; padding: .35rem .9rem; font-weight: 700; color: var(--azul); }
 .tarjeta--fija:hover { border-color: var(--borde); box-shadow: none; }
 
+/* Inicio: poblaciones como lista dentro de la descripción */
+.lista-poblaciones { list-style: none; margin: .25rem 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: .5rem; }
+.lista-poblaciones li > * {
+  display: inline-flex; align-items: center; min-height: 2.75rem; padding: .3rem 1rem; border-radius: 999px;
+  background: var(--blanco); border: 2px solid var(--azul); color: var(--azul); font-weight: 700; font-size: 1rem; text-decoration: none;
+}
+.lista-poblaciones a:hover { background: var(--azul); color: var(--blanco); }
+.lista-poblaciones span { border-color: var(--borde) !important; color: var(--tinta) !important; font-weight: 400 !important; }
+.lista-poblaciones a::after { content: " →"; margin-left: .3rem; }
+/* Talleres: tarjeta con botón de inscripción */
+.tarjeta--taller { gap: .7rem; }
+.tarjeta__boton { align-self: flex-start; margin-top: .4rem; min-height: 2.9rem; }
+.tarjeta__pendiente { align-self: flex-start; margin-top: .4rem; padding: .55rem 1rem; border: 2px dashed var(--borde-fuerte); border-radius: 10px; color: var(--gris); font-weight: 700; font-size: .95rem; }
+
 /* ── Comunidad ciega ────────────────────────────────────────── */
 .lista-recursos { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 1rem; }
 .recurso { border: 2px solid var(--borde); border-radius: 16px; padding: 1.4rem; display: flex; flex-direction: column; gap: .5rem; }
