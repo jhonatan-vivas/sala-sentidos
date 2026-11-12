@@ -1,0 +1,19 @@
+{%- comment -%}
+  Botón "Ver en LSC" que despliega el video de la traducción debajo del encabezado.
+  Uso: {% include lsc-desplegable.html id=enlace_youtube titulo="A quién acompañamos" clave="acompanamos" %}
+{%- endcomment -%}
+{%- include yt-id.html valor=include.id -%}
+{%- if yt_id != "" %}
+<button type="button" class="boton-lsc" aria-expanded="false" aria-controls="lsc-{{ include.clave }}" data-lsc-toggle>
+  <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 11V6a2 2 0 0 0-4 0v5"/><path d="M14 10V4a2 2 0 0 0-4 0v6"/><path d="M10 10.5V6a2 2 0 0 0-4 0v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></svg>
+  <span data-lsc-texto>Ver en LSC</span>
+</button>
+<div id="lsc-{{ include.clave }}" class="lsc-desplegable" hidden>
+  {% include video-lite.html id=include.id titulo=include.titulo %}
+</div>
+{%- else %}
+<span class="boton-lsc boton-lsc--pendiente">
+  <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 11V6a2 2 0 0 0-4 0v5"/><path d="M14 10V4a2 2 0 0 0-4 0v6"/><path d="M10 10.5V6a2 2 0 0 0-4 0v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></svg>
+  Traducción en LSC pendiente
+</span>
+{%- endif %}

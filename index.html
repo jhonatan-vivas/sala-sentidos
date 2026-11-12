@@ -23,16 +23,16 @@ seccion: inicio
 <section id="sala" class="banda banda--clara seccion" aria-labelledby="t-sala">
   <div class="contenedor pila-grande">
     <div class="bilingue">
-      <div class="bilingue__video bilingue__video--con-datos">
+      <div class="bilingue__video">
         {% include video.html id=s.video_que_es titulo="¿Qué es la Sala Conectando Sentidos?" %}
-        <dl class="datos">
-          <div class="dato"><dt>Ubicación</dt><dd>{{ s.ubicacion }}</dd></div>
-          <div class="dato"><dt>Contacto</dt><dd>{{ s.correo }}</dd></div>
-        </dl>
       </div>
       <div class="bilingue__texto">
         <h2 id="t-sala" class="titulo-2 color-azul">¿Qué es la {{ s.nombre }}?</h2>
         <p class="texto-grande">{{ s.texto_que_es }}</p>
+        <dl class="datos">
+          <div class="dato"><dt>Ubicación</dt><dd>{{ s.ubicacion }}</dd></div>
+          <div class="dato"><dt>Contacto</dt><dd>{{ s.correo }}</dd></div>
+        </dl>
       </div>
     </div>
 
@@ -58,7 +58,7 @@ seccion: inicio
 
     <div class="pila">
       <div class="bilingue bilingue--subseccion">
-        <div class="bilingue__video bilingue__video--chico">
+        <div class="bilingue__video">
           {% include video.html id=sala.acompanamos_video titulo="A quién acompañamos, en LSC" %}
         </div>
         <div class="bilingue__texto">
@@ -83,7 +83,7 @@ seccion: inicio
     {%- if sala.talleres %}
     <div class="pila">
       <div class="bilingue bilingue--subseccion">
-        <div class="bilingue__video bilingue__video--chico">
+        <div class="bilingue__video">
           {% include video.html id=sala.talleres.video titulo="Talleres de formación, en LSC" %}
         </div>
         <div class="bilingue__texto">

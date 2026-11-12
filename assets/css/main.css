@@ -446,10 +446,14 @@ html.alto-contraste .nav :focus-visible { outline-color: #FFE14D; }
 #sala .bilingue__video { padding-top: .5rem; }
 
 #sala { padding-bottom: 3rem; }
-.bilingue__video--con-datos { display: flex; flex-direction: column; gap: 1rem; }
-.bilingue__video--con-datos .datos { flex-wrap: wrap; }
-.bilingue--subseccion { gap: 2.5rem; align-items: center; }
-.bilingue--subseccion .bilingue__video--chico { flex: 0 1 26rem; }
+/* Subsecciones de Inicio: video en LSC siempre visible, a la izquierda; texto centrado a su lado */
+#sala .bilingue--subseccion { gap: 2.5rem; align-items: center !important; }
+#sala .bilingue--subseccion .bilingue__video { flex: 0 1 27rem; }
+#sala .bilingue--subseccion .bilingue__texto { flex: 1 1 22rem; max-width: 46rem; }
+/* "¿Qué es la Sala?": video centrado respecto al texto y los datos */
+#sala .bilingue { align-items: center !important; }
+#sala .bilingue__video { padding-top: 0 !important; }
+.dato dd { overflow-wrap: anywhere; }
 .talleres__lista { flex: none; list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); gap: 1rem; }
 
 /* Horarios por día */
