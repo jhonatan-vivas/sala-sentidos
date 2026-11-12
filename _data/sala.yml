@@ -10,6 +10,10 @@ historia:
   - "Con el tiempo se consolidó como un espacio pedagógico y terapéutico, con herramientas para estimular la vista, el oído, el tacto, el olfato y la propiocepción. Hoy es un referente institucional en inclusión y atención diferencial, y apoya procesos académicos, psicosociales y de orientación para estudiantes, docentes y personal administrativo."
   - "La Sala sigue incorporando nuevas metodologías, tecnologías y enfoques interdisciplinarios, como parte del compromiso de la UTP con la formación integral, la equidad y el respeto por la diversidad."
 
+# Encabezado de "A quién acompañamos": video en LSC (enlace o ID de YouTube) y su texto en español
+acompanamos_video: ""
+acompanamos_texto: La Sala acompaña a estudiantes con distintas condiciones y estilos de aprendizaje.
+
 # A quién acompaña la Sala. "url" es opcional: si la población tiene su propia sección.
 poblaciones:
   - titulo: Comunidad Sorda
@@ -49,6 +53,7 @@ espacio_sensorial:
   - Menos estrés y ansiedad
 
 talleres:
+  video: ""
   texto: "La Sala ofrece talleres de sensibilización en Lengua de Señas Colombiana y en sistema braille, para que la comunidad universitaria se acerque a otras formas de comunicación accesible. Son cursos de 40 horas por semestre."
   items:
     - titulo: Taller de Lengua de Señas Colombiana

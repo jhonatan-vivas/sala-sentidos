@@ -223,6 +223,8 @@ collections:
             name: historia
             widget: list
             field: { label: "Párrafo", name: parrafo, widget: text }
+          - { label: "A quién acompañamos · video en LSC (YouTube)", name: acompanamos_video, widget: string, required: false }
+          - { label: "A quién acompañamos · texto en español", name: acompanamos_texto, widget: text, required: false }
           - label: "A quién acompañamos"
             name: poblaciones
             widget: list
@@ -238,7 +240,8 @@ collections:
             name: talleres
             widget: object
             fields:
-              - { label: "Texto", name: texto, widget: text }
+              - { label: "Video en LSC (YouTube)", name: video, widget: string, required: false }
+              - { label: "Texto en español", name: texto, widget: text }
               - label: "Talleres"
                 name: items
                 widget: list

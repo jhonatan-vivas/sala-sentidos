@@ -23,16 +23,16 @@ seccion: inicio
 <section id="sala" class="banda banda--clara seccion" aria-labelledby="t-sala">
   <div class="contenedor pila-grande">
     <div class="bilingue">
-      <div class="bilingue__video">
+      <div class="bilingue__video bilingue__video--con-datos">
         {% include video.html id=s.video_que_es titulo="¿Qué es la Sala Conectando Sentidos?" %}
-      </div>
-      <div class="bilingue__texto">
-        <h2 id="t-sala" class="titulo-2 color-azul">¿Qué es la {{ s.nombre }}?</h2>
-        <p class="texto-grande">{{ s.texto_que_es }}</p>
         <dl class="datos">
           <div class="dato"><dt>Ubicación</dt><dd>{{ s.ubicacion }}</dd></div>
           <div class="dato"><dt>Contacto</dt><dd>{{ s.correo }}</dd></div>
         </dl>
+      </div>
+      <div class="bilingue__texto">
+        <h2 id="t-sala" class="titulo-2 color-azul">¿Qué es la {{ s.nombre }}?</h2>
+        <p class="texto-grande">{{ s.texto_que_es }}</p>
       </div>
     </div>
 
@@ -57,9 +57,14 @@ seccion: inicio
     {%- endif %}
 
     <div class="pila">
-      <div class="seccion-intro seccion-intro--sin-margen">
-        <h3 class="titulo-3">A quién acompañamos</h3>
-        <p class="texto-suave">La Sala acompaña a estudiantes con distintas condiciones y estilos de aprendizaje.</p>
+      <div class="bilingue bilingue--subseccion">
+        <div class="bilingue__video bilingue__video--chico">
+          {% include video.html id=sala.acompanamos_video titulo="A quién acompañamos, en LSC" %}
+        </div>
+        <div class="bilingue__texto">
+          <h3 class="titulo-3">A quién acompañamos</h3>
+          <p class="texto-grande">{{ sala.acompanamos_texto | default: "La Sala acompaña a estudiantes con distintas condiciones y estilos de aprendizaje." }}</p>
+        </div>
       </div>
       <ul class="poblaciones">
         {%- for po in sala.poblaciones %}
@@ -76,10 +81,15 @@ seccion: inicio
     </div>
 
     {%- if sala.talleres %}
-    <div class="talleres">
-      <div class="talleres__intro">
-        <h3 class="titulo-3">Talleres de formación</h3>
-        <p class="texto-grande">{{ sala.talleres.texto }}</p>
+    <div class="pila">
+      <div class="bilingue bilingue--subseccion">
+        <div class="bilingue__video bilingue__video--chico">
+          {% include video.html id=sala.talleres.video titulo="Talleres de formación, en LSC" %}
+        </div>
+        <div class="bilingue__texto">
+          <h3 class="titulo-3">Talleres de formación</h3>
+          <p class="texto-grande">{{ sala.talleres.texto }}</p>
+        </div>
       </div>
       <ul class="talleres__lista">
         {%- for t in sala.talleres.items %}
