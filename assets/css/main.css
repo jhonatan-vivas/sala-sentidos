@@ -440,9 +440,10 @@ html.alto-contraste .nav :focus-visible { outline-color: #FFE14D; }
 .ficha__datos dd { margin: .1rem 0 0; color: var(--tinta); }
 .ficha video { width: 100%; border-radius: 12px; background: var(--video); }
 
-/* Inicio: la sección de la Sala va pegada a la bienvenida (mismo fondo) */
-.banda--clara + #sala { padding-top: 0; }
-.banda--clara + #sala > .contenedor { border-top: 1px solid var(--borde); padding-top: 3.5rem; }
+/* Inicio: bienvenida en blanco y la Sala en azul claro; el video de "¿Qué es…?" alineado arriba */
+.banda--heroe-inicio { background: var(--blanco); }
+#sala .bilingue { align-items: flex-start; }
+#sala .bilingue__video { padding-top: .5rem; }
 
 /* ── Inicio: historia, poblaciones, talleres ────────────────── */
 .historia { background: var(--blanco); border-radius: 16px; padding: 0 1.5rem; }
