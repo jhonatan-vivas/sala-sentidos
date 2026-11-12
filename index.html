@@ -64,17 +64,25 @@ seccion: inicio
           {% include video.html id=sala.acompanamos_video titulo="A quién acompañamos, en LSC" %}
         </div>
       </div>
-      <ul class="poblaciones">
+      <ul class="acordeon">
         {%- for po in sala.poblaciones %}
-        <li class="poblacion">
-          <div class="poblacion__cabeza">
-            <h4 class="titulo-4 color-azul">{{ po.titulo }}</h4>
-            {%- if po.texto and po.texto != "" %}<p class="texto-suave">{{ po.texto }}</p>{% endif %}
-            {%- if po.url and po.url != "" %}<a class="poblacion__ir" href="{{ po.url | relative_url }}">Ir a la sección <span aria-hidden="true">→</span></a>{% endif %}
-          </div>
-          <ul class="poblacion__apoyos">
-            {%- for a in po.apoyos %}<li>{{ a }}</li>{% endfor %}
-          </ul>
+        <li>
+          <details class="acordeon__item"{% if forloop.first %} open{% endif %}>
+            <summary class="acordeon__resumen">
+              <span class="acordeon__encabezado">
+                <span class="acordeon__titulo">{{ po.titulo }}</span>
+                {%- if po.texto and po.texto != "" %}<span class="acordeon__sub">{{ po.texto }}</span>{% endif %}
+              </span>
+              <svg class="acordeon__flecha" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </summary>
+            <div class="acordeon__cuerpo">
+              <p class="etiqueta">Cómo acompaña la Sala</p>
+              <ul class="poblacion__apoyos">
+                {%- for a in po.apoyos %}<li>{{ a }}</li>{% endfor %}
+              </ul>
+              {%- if po.url and po.url != "" %}<a class="poblacion__ir" href="{{ po.url | relative_url }}">Ir a la sección {{ po.titulo }} <span aria-hidden="true">→</span></a>{% endif %}
+            </div>
+          </details>
         </li>
         {%- endfor %}
       </ul>
