@@ -56,23 +56,6 @@ seccion: inicio
     </details>
     {%- endif %}
 
-    <div class="pila">
-      <div class="bilingue bilingue--subseccion">
-        <div class="bilingue__video">
-          {% include video.html id=sala.acompanamos_video titulo="A quién acompañamos, en LSC" %}
-        </div>
-        <div class="bilingue__texto">
-          <h3 class="titulo-3">A quién acompañamos</h3>
-          <p class="texto-grande">{{ sala.acompanamos_texto | default: "La Sala acompaña a estudiantes con distintas condiciones y estilos de aprendizaje." }}</p>
-          <ul class="lista-poblaciones">
-            {%- for po in sala.poblaciones %}
-            <li>{% if po.url and po.url != "" %}<a href="{{ po.url | relative_url }}">{{ po.titulo }}</a>{% else %}<span>{{ po.titulo }}</span>{% endif %}</li>
-            {%- endfor %}
-          </ul>
-        </div>
-      </div>
-    </div>
-
     {%- if sala.talleres %}
     <div class="pila">
       <div class="bilingue bilingue--subseccion">

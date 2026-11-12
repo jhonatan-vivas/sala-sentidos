@@ -213,7 +213,7 @@ collections:
           - { label: "Texto «¿Qué es la Sala?»", name: texto_que_es, widget: text }
           - { label: "Última actualización (texto libre)", name: ultima_actualizacion, widget: string, required: false }
 
-      - label: "La Sala: historia y acompañamientos"
+      - label: "La Sala: historia y talleres"
         name: sala
         file: _data/sala.yml
         fields:
@@ -223,19 +223,6 @@ collections:
             name: historia
             widget: list
             field: { label: "Párrafo", name: parrafo, widget: text }
-          - { label: "A quién acompañamos · video en LSC (YouTube)", name: acompanamos_video, widget: string, required: false }
-          - { label: "A quién acompañamos · texto en español", name: acompanamos_texto, widget: text, required: false }
-          - label: "A quién acompañamos"
-            name: poblaciones
-            widget: list
-            label_singular: población
-            summary: "{{fields.titulo}}"
-            fields:
-              - { label: "Título", name: titulo, widget: string }
-              - { label: "Descripción corta", name: texto, widget: string, required: false }
-              - { label: "Página de la sección (opcional)", name: url, widget: string, required: false, hint: "Ej.: /comunidad-sorda/" }
-              - { label: "Apoyos que ofrece la Sala", name: apoyos, widget: list }
-          - { label: "Beneficios del espacio sensorial", name: espacio_sensorial, widget: list }
           - label: "Talleres de formación"
             name: talleres
             widget: object
