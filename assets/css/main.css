@@ -452,29 +452,14 @@ html.alto-contraste .nav :focus-visible { outline-color: #FFE14D; }
 .bloque-lsc__intro { display: flex; flex-direction: column; gap: .9rem; position: sticky; top: 1.5rem; }
 .bloque-lsc__intro .texto-grande { font-size: 1.1rem; }
 .bloque-lsc__video { margin-top: .4rem; }
-/* Acordeón de poblaciones (A quién acompañamos) */
-.acordeon { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: .75rem; }
-.acordeon__item { background: var(--blanco); border-radius: 14px; border: 2px solid transparent; }
-.acordeon__item[open] { border-color: var(--azul); }
-.acordeon__resumen {
-  list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 1rem;
-  min-height: 4.5rem; padding: .9rem 1.4rem; border-radius: 12px;
-}
-.acordeon__resumen::-webkit-details-marker { display: none; }
-.acordeon__resumen:hover { background: var(--azul-claro); }
-.acordeon__item[open] .acordeon__resumen { border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
-.acordeon__encabezado { display: flex; flex-direction: column; gap: .15rem; }
-.acordeon__titulo { font-size: 1.2rem; font-weight: 700; color: var(--azul); }
-.acordeon__sub { font-size: .95rem; color: var(--gris); }
-.acordeon__flecha { flex: none; color: var(--azul); transition: transform .2s; }
-.acordeon__item[open] .acordeon__flecha { transform: rotate(180deg); }
-.acordeon__cuerpo { padding: .25rem 1.4rem 1.3rem; display: flex; flex-direction: column; gap: .6rem; }
-.acordeon__cuerpo .poblacion__apoyos { margin: 0; padding-left: 1.2rem; display: flex; flex-direction: column; gap: .35rem; }
-.acordeon__cuerpo .poblacion__ir { font-weight: 700; margin-top: .2rem; }
+.bloque-lsc .poblaciones { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .bloque-lsc .talleres__lista { grid-template-columns: 1fr; }
 @media (max-width: 960px) {
   .bloque-lsc { grid-template-columns: 1fr; }
   .bloque-lsc__intro { position: static; max-width: 40rem; }
+}
+@media (max-width: 600px) {
+  .bloque-lsc .poblaciones { grid-template-columns: 1fr; }
 }
 /* "¿Qué es la Sala?": video centrado respecto al texto y los datos */
 #sala .bilingue { align-items: center !important; }

@@ -9,8 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-  {%- assign version = site.time | date: '%Y%m%d%H%M%S' %}
-  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}?v={{ version }}">
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
   <link rel="icon" href="{{ site.data.sitio.logo_sala | relative_url }}">
   <script>
     /* Aplica antes de pintar las preferencias guardadas (tamaño de letra y contraste) */
@@ -31,9 +30,9 @@
   </main>
   {% include footer.html %}
   {% include accesibilidad.html %}
-  <script src="{{ '/assets/js/main.js' | relative_url }}?v={{ version }}" defer></script>
+  <script src="{{ '/assets/js/main.js' | relative_url }}" defer></script>
   {%- for s in page.scripts %}
-  <script src="{{ s | relative_url }}?v={{ version }}" defer></script>
+  <script src="{{ s | relative_url }}" defer></script>
   {%- endfor %}
 </body>
 </html>
