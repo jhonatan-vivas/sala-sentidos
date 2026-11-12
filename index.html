@@ -56,14 +56,12 @@ seccion: inicio
     </details>
     {%- endif %}
 
-    <div class="pila">
-      <div class="bilingue bilingue--subseccion">
-        <div class="bilingue__video">
+    <div class="bloque-lsc">
+      <div class="bloque-lsc__intro">
+        <h3 class="titulo-3">A quién acompañamos</h3>
+        <p class="texto-grande">{{ sala.acompanamos_texto | default: "La Sala acompaña a estudiantes con distintas condiciones y estilos de aprendizaje." }}</p>
+        <div class="bloque-lsc__video">
           {% include video.html id=sala.acompanamos_video titulo="A quién acompañamos, en LSC" %}
-        </div>
-        <div class="bilingue__texto">
-          <h3 class="titulo-3">A quién acompañamos</h3>
-          <p class="texto-grande">{{ sala.acompanamos_texto | default: "La Sala acompaña a estudiantes con distintas condiciones y estilos de aprendizaje." }}</p>
         </div>
       </div>
       <ul class="poblaciones">
@@ -81,14 +79,12 @@ seccion: inicio
     </div>
 
     {%- if sala.talleres %}
-    <div class="pila">
-      <div class="bilingue bilingue--subseccion">
-        <div class="bilingue__video">
+    <div class="bloque-lsc">
+      <div class="bloque-lsc__intro">
+        <h3 class="titulo-3">Talleres de formación</h3>
+        <p class="texto-grande">{{ sala.talleres.texto }}</p>
+        <div class="bloque-lsc__video">
           {% include video.html id=sala.talleres.video titulo="Talleres de formación, en LSC" %}
-        </div>
-        <div class="bilingue__texto">
-          <h3 class="titulo-3">Talleres de formación</h3>
-          <p class="texto-grande">{{ sala.talleres.texto }}</p>
         </div>
       </div>
       <ul class="talleres__lista">

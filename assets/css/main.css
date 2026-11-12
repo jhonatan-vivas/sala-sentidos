@@ -446,10 +446,21 @@ html.alto-contraste .nav :focus-visible { outline-color: #FFE14D; }
 #sala .bilingue__video { padding-top: .5rem; }
 
 #sala { padding-bottom: 3rem; }
-/* Subsecciones de Inicio: video en LSC siempre visible, a la izquierda; texto centrado a su lado */
-#sala .bilingue--subseccion { gap: 2.5rem; align-items: center !important; }
-#sala .bilingue--subseccion .bilingue__video { flex: 0 1 27rem; }
-#sala .bilingue--subseccion .bilingue__texto { flex: 1 1 22rem; max-width: 46rem; }
+/* Subsecciones de Inicio: columna de presentación (título, texto en español y video en LSC)
+   a la izquierda y el contenido a la derecha. El video siempre visible. */
+.bloque-lsc { display: grid; grid-template-columns: minmax(18rem, 1fr) minmax(0, 2fr); gap: 2rem; align-items: start; }
+.bloque-lsc__intro { display: flex; flex-direction: column; gap: .9rem; position: sticky; top: 1.5rem; }
+.bloque-lsc__intro .texto-grande { font-size: 1.1rem; }
+.bloque-lsc__video { margin-top: .4rem; }
+.bloque-lsc .poblaciones { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.bloque-lsc .talleres__lista { grid-template-columns: 1fr; }
+@media (max-width: 960px) {
+  .bloque-lsc { grid-template-columns: 1fr; }
+  .bloque-lsc__intro { position: static; max-width: 40rem; }
+}
+@media (max-width: 600px) {
+  .bloque-lsc .poblaciones { grid-template-columns: 1fr; }
+}
 /* "¿Qué es la Sala?": video centrado respecto al texto y los datos */
 #sala .bilingue { align-items: center !important; }
 #sala .bilingue__video { padding-top: 0 !important; }
