@@ -447,9 +447,7 @@ html.alto-contraste .nav :focus-visible { outline-color: #FFE14D; }
 
 #sala { padding-bottom: 3rem; }
 /* Subsecciones de Inicio: video en LSC siempre visible, a la izquierda; texto centrado a su lado */
-#sala .bilingue--subseccion { gap: 2.5rem; align-items: center !important; }
-#sala .bilingue--subseccion .bilingue__video { flex: 0 1 27rem; }
-#sala .bilingue--subseccion .bilingue__texto { flex: 1 1 22rem; max-width: 46rem; }
+#sala .bilingue--subseccion { align-items: center !important; }
 /* "¿Qué es la Sala?": video centrado respecto al texto y los datos */
 #sala .bilingue { align-items: center !important; }
 #sala .bilingue__video { padding-top: 0 !important; }
