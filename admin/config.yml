@@ -92,8 +92,6 @@ collections:
       - { label: "Video de la seña (enlace o ID de YouTube)", name: youtube, widget: string, required: false }
       - { label: "Contexto de uso", name: contexto, widget: text, required: false }
       - { label: "Variantes y notas", name: variantes, widget: text, required: false }
-      - { label: "Validado por", name: validado_por, widget: string, required: false, hint: "Nombre o rol de quien validó la seña." }
-      - { label: "Fecha de validación", name: fecha, widget: string, required: false, hint: "Ej.: 2026-11-03" }
       - { label: "Palabras clave (para la búsqueda)", name: etiquetas, widget: list, required: false }
 
   # ── 3. Secciones del portal ────────────────────────────────

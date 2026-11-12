@@ -18,7 +18,7 @@ scripts:
     </div>
     <div class="bilingue__texto">
       <h1 id="t-repo" class="titulo-1">Repositorio de señas</h1>
-      <p class="texto-grande">Señas de términos académicos organizadas por área y subárea. Cada seña tiene su video, el contexto en que se usa y quién la validó.</p>
+      <p class="texto-grande">Señas de términos académicos organizadas por área y subárea. Cada seña tiene su video y el contexto en que se usa.</p>
       <form class="buscador buscador--grande" role="search" data-repo-buscar>
         <label class="sr" for="q-senas">Buscar una seña por palabra en español</label>
         <input id="q-senas" type="search" placeholder="Busca una palabra: derivada, voltaje…" autocomplete="off">
@@ -78,7 +78,6 @@ scripts:
             <dl class="ficha__datos">
               {%- if e.contexto and e.contexto != "" %}<div><dt>Contexto de uso</dt><dd>{{ e.contexto }}</dd></div>{% endif %}
               <div><dt>Variantes y notas</dt><dd>{{ e.variantes | default: "Sin variantes registradas." }}</dd></div>
-              {%- if e.validado_por and e.validado_por != "" %}<div><dt>Validación</dt><dd>{{ e.validado_por }}{% if e.fecha and e.fecha != "" %} · {{ e.fecha }}{% endif %}</dd></div>{% endif %}
             </dl>
           </template>
         </li>
