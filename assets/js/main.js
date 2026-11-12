@@ -200,6 +200,17 @@
   });
 
   /* ── 4. Videos livianos: la miniatura se vuelve reproductor ─ */
+  function revisarMiniatura(img) {
+    if (!img.dataset.respaldo) return;
+    if (!img.complete) return;
+    if (img.naturalWidth > 0 && img.naturalWidth <= 120) { img.src = img.dataset.respaldo; img.removeAttribute('data-respaldo'); }
+  }
+  document.querySelectorAll('img[data-respaldo]').forEach(function (img) {
+    img.addEventListener('load', function () { revisarMiniatura(img); });
+    img.addEventListener('error', function () { if (img.dataset.respaldo) { img.src = img.dataset.respaldo; img.removeAttribute('data-respaldo'); } });
+    revisarMiniatura(img);
+  });
+
   document.addEventListener('click', function (e) {
     var b = e.target.closest('button.video-lite[data-yt]');
     if (!b) return;

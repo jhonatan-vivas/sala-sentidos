@@ -62,7 +62,7 @@ seccion: sorda
         <div class="episodio__texto">
           <span class="etiqueta">Episodio {{ forloop.rindex }}</span>
           <span class="episodio__titulo">{{ e.titulo }}</span>
-          <span class="texto-suave">{{ e.invitado }}{% if e.duracion and e.duracion != "" %} · {{ e.duracion }}{% endif %} · LSC + subtítulos</span>
+          <span class="texto-suave">{{ e.invitado }}{% if e.duracion and e.duracion != "" %} · {% include duracion.html valor=e.duracion %}{% endif %} · LSC + subtítulos</span>
         </div>
       </li>
       {%- endfor %}

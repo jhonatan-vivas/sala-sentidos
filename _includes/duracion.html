@@ -1,0 +1,9 @@
+{%- comment -%}
+  Muestra una duración como mm:ss. Si en el archivo quedó 01:02 sin comillas,
+  Jekyll lo lee como 62 segundos (62.0); aquí se vuelve a convertir a 01:02.
+{%- endcomment -%}
+{%- assign d_txt = include.valor | append: "" | strip -%}
+{%- if d_txt == "" or d_txt contains ":" -%}{{ d_txt }}{%- else -%}
+{%- assign d_seg = d_txt | plus: 0 | round -%}{%- assign d_m = d_seg | divided_by: 60 -%}{%- assign d_s = d_seg | modulo: 60 -%}
+{%- if d_m < 10 -%}0{%- endif -%}{{ d_m }}:{%- if d_s < 10 -%}0{%- endif -%}{{ d_s }}
+{%- endif -%}

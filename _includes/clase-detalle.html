@@ -20,7 +20,7 @@
     <li>
       <button type="button" class="boton-video" data-yt="{{ yt_id }}" data-titulo="{{ v.titulo | escape }}"{% if forloop.first %} aria-current="true"{% endif %}>
         <span class="boton-video__mini" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M10 8.5v7l5.5-3.5z" fill="currentColor"/></svg></span>
-        <span class="boton-video__texto"><strong>Video {{ forloop.index }}</strong><span>{{ v.titulo }}{% if v.duracion and v.duracion != "" %} · {{ v.duracion }}{% endif %}</span></span>
+        <span class="boton-video__texto"><strong>Video {{ forloop.index }}</strong><span>{{ v.titulo }}{% if v.duracion and v.duracion != "" %} · {% include duracion.html valor=v.duracion %}{% endif %}</span></span>
       </button>
     </li>
     {%- endfor %}
