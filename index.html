@@ -67,12 +67,14 @@ seccion: inicio
       <ul class="poblaciones">
         {%- for po in sala.poblaciones %}
         <li class="poblacion">
-          <h4 class="titulo-4 color-azul">{{ po.titulo }}</h4>
-          {%- if po.texto and po.texto != "" %}<p class="texto-suave">{{ po.texto }}</p>{% endif %}
+          <div class="poblacion__cabeza">
+            <h4 class="titulo-4 color-azul">{{ po.titulo }}</h4>
+            {%- if po.texto and po.texto != "" %}<p class="texto-suave">{{ po.texto }}</p>{% endif %}
+            {%- if po.url and po.url != "" %}<a class="poblacion__ir" href="{{ po.url | relative_url }}">Ir a la sección <span aria-hidden="true">→</span></a>{% endif %}
+          </div>
           <ul class="poblacion__apoyos">
             {%- for a in po.apoyos %}<li>{{ a }}</li>{% endfor %}
           </ul>
-          {%- if po.url and po.url != "" %}<a class="poblacion__ir" href="{{ po.url | relative_url }}">Ir a la sección <span aria-hidden="true">→</span></a>{% endif %}
         </li>
         {%- endfor %}
       </ul>

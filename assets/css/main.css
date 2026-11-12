@@ -452,14 +452,18 @@ html.alto-contraste .nav :focus-visible { outline-color: #FFE14D; }
 .bloque-lsc__intro { display: flex; flex-direction: column; gap: .9rem; position: sticky; top: 1.5rem; }
 .bloque-lsc__intro .texto-grande { font-size: 1.1rem; }
 .bloque-lsc__video { margin-top: .4rem; }
-.bloque-lsc .poblaciones { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.bloque-lsc .poblaciones { grid-template-columns: 1fr; gap: .9rem; }
+.bloque-lsc .poblacion { display: grid; grid-template-columns: minmax(12rem, 2fr) minmax(0, 3fr); gap: .5rem 2rem; align-items: start; padding: 1.4rem 1.6rem; }
+.poblacion__cabeza { display: flex; flex-direction: column; gap: .35rem; }
+.bloque-lsc .poblacion__ir { margin-top: .4rem; }
+.bloque-lsc .poblacion__apoyos { padding-left: 1.2rem; }
 .bloque-lsc .talleres__lista { grid-template-columns: 1fr; }
 @media (max-width: 960px) {
   .bloque-lsc { grid-template-columns: 1fr; }
   .bloque-lsc__intro { position: static; max-width: 40rem; }
 }
 @media (max-width: 600px) {
-  .bloque-lsc .poblaciones { grid-template-columns: 1fr; }
+  .bloque-lsc .poblacion { grid-template-columns: 1fr; }
 }
 /* "¿Qué es la Sala?": video centrado respecto al texto y los datos */
 #sala .bilingue { align-items: center !important; }
