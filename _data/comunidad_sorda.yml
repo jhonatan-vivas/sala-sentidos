@@ -1,29 +1,26 @@
 bienvenida_video: ""
-bienvenida_texto: "[Texto en español equivalente al video: qué encontrarás en esta sección —curiosidades, cultura, historia, podcast— y quién produce los contenidos.]"
-
+bienvenida_texto: "La comunidad sorda está conformada por personas que comparten
+  experiencias, una identidad cultural y, en muchos casos, una lengua propia: la
+  Lengua de Señas Colombiana (LSC). Reconocer su diversidad implica comprender
+  sus formas de comunicación, sus expresiones culturales y sus derechos, así
+  como identificar las barreras que pueden enfrentar en diferentes entornos. En
+  esta sección encontrarás información que permite acercarte a la comunidad
+  sorda, reconocer su riqueza lingüística y cultural y promover espacios más
+  accesibles, inclusivos y respetuosos de la diversidad."
 categorias:
   - Curiosidades
   - Cultura Sorda
   - Historia
   - Vida universitaria
-
 videos:
   - titulo: "[Título del video]"
     categoria: Curiosidades
     youtube: ""
     duracion: ""
-  - titulo: "[Título del video]"
-    categoria: Cultura Sorda
-    youtube: ""
-    duracion: ""
-  - titulo: "[Título del video]"
-    categoria: Historia
-    youtube: ""
-    duracion: ""
-
 podcast:
-  nombre: "[Nombre del podcast]"
-  descripcion: "Conversaciones en video, en LSC y con subtítulos en español."
+  nombre: Historias que se señan
+  descripcion: Un espacio para visibilizar las vivencias y los aportes de las
+    personas Sordas.
   episodios:
     - titulo: "[Título del episodio]"
       invitado: "[Invitado/a]"
