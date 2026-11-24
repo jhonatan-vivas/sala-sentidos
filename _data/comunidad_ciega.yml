@@ -7,6 +7,7 @@ recursos:
     descripcion: >-
       Mito: Las personas con discapacidad visual no pueden estudiar ni trabajar.
 
+
       Realidad: Con los apoyos y ajustes adecuados, pueden estudiar, trabajar y desarrollar plenamente sus capacidades.
     url: ""
     duracion: ""
@@ -15,11 +16,13 @@ recursos:
     descripcion: >-
       Mito: Todas las personas ciegas saben Braille.
 
+
       Realidad: El uso del Braille depende de las necesidades, características y procesos de cada persona.
   - tipo: Mito y Realidad
     titulo: Autonomía e independencia.
     descripcion: >-
       Mito: Una persona con discapacidad visual necesita ayuda para todo.
+
 
       Realidad: Puede desarrollar autonomía e independencia utilizando estrategias y herramientas de apoyo.
   - tipo: Mito y Realidad
@@ -27,16 +30,19 @@ recursos:
     descripcion: >-
       Mito: Las personas con discapacidad visual no pueden usar tecnología.
 
+
       Realidad: Utilizan lectores de pantalla, magnificadores, líneas Braille y otras herramientas tiflotecnológicas.
   - tipo: Mito y Realidad
     titulo: Vivir la cotidianidad sin límites.
     descripcion: >-
       Mito: La discapacidad visual impide realizar actividades cotidianas.
 
+
       Realidad: Muchas actividades pueden realizarse de manera autónoma con accesibilidad y los apoyos necesarios.
   - tipo: Mito y Realidad
     titulo: Las barreras están en el entorno.
     descripcion: >-
       Mito: La mayor dificultad está en la discapacidad.
+
 
       Realidad: Muchas veces, las principales dificultades surgen de las barreras físicas, sociales, comunicativas y actitudinales.
