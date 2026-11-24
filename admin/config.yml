@@ -159,7 +159,7 @@ collections:
             label_singular: recurso
             summary: "{{fields.tipo}} · {{fields.titulo}}"
             fields:
-              - { label: "Tipo", name: tipo, widget: select, options: ["Video con audiodescripción", "Audio", "Documento accesible", "Enlace"] }
+              - { label: "Tipo", name: tipo, widget: select, options: ["Video con audiodescripción", "Audio", "Documento accesible", "Enlace", "Mito y Realidad", "Definición"] }
               - { label: "Título", name: titulo, widget: string }
               - { label: "Descripción", name: descripcion, widget: text, required: false }
               - { label: "Enlace", name: url, widget: string, required: false }
