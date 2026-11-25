@@ -607,3 +607,14 @@ html.alto-contraste .pie__suave, html.alto-contraste .pie__legal { color: #FFFFF
 @media print {
   .encabezado, .a11y, .pie, .salto { display: none !important; }
 }
+
+/* Nombre del podcast: se lee como el título del programa */
+.podcast__nombre {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--tinta);
+  padding-left: .8rem;
+  border-left: 4px solid var(--azul);
+}
+@media (max-width: 40rem) { .podcast__nombre { font-size: 1.3rem; } }
