@@ -10,8 +10,8 @@ description: >-
 lang: es
 
 # Para un dominio propio o un repositorio USUARIO.github.io  →  baseurl: ""
-baseurl: "/sala-sentidos"
-url: "https://jhonatan-vivas.github.io"
+baseurl: ""
+url: "https://salaconectandosentidos.github.io"
 
 # Colecciones: una clase o una seña = un archivo (fácil de agregar y quitar)
 collections:

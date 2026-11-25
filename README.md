@@ -6,25 +6,18 @@ El contenido vive en archivos de texto (`.yml` y `.md`). Se pueden editar a mano
 
 ---
 
-## 1. Publicarlo en GitHub Pages (una sola vez)
+## 1. Dónde está publicado
 
-1. Crea un repositorio en GitHub, por ejemplo `sala-sentidos`.
-2. Descomprime el .zip en una carpeta y súbelo con Git Bash:
-   ```bash
-   cd sala-sentidos
-   git init
-   git add .
-   git commit -m "Primera versión del portal"
-   git branch -M main
-   git remote add origin https://github.com/USUARIO/sala-sentidos.git
-   git push -u origin main
-   ```
-3. En GitHub, ve a **Settings › Pages**. En *Source* elige **Deploy from a branch**, rama **main**, carpeta **/ (root)**.
-4. Antes de subir, abre estos dos archivos y cambia `USUARIO` por tu usuario de GitHub:
-   - `_config.yml` → `url: "https://USUARIO.github.io"`. Si el repositorio tiene otro nombre, cambia también `baseurl`.
-   - `admin/config.yml` → `repo: USUARIO/sala-sentidos`.
+- **Sitio:** https://salaconectandosentidos.github.io/
+- **Repositorio:** https://github.com/salaconectandosentidos/salaconectandosentidos.github.io (organización *salaconectandosentidos*).
+- Se publica solo con GitHub Actions (*Settings › Pages › Source: GitHub Actions*, flujo `.github/workflows/publicar.yml`). Después de cada `git push` se actualiza en 1 o 2 minutos.
+- Para que otra persona administre el sitio, agrégala como miembro de la organización.
+- Si algún día se usa un dominio propio o un subdominio UTP: escríbelo en *Settings › Pages › Custom domain* y cambia `url` en `_config.yml` (y `site_url` / `display_url` en `admin/config.yml`).
 
-El sitio queda en `https://USUARIO.github.io/sala-sentidos/`. Después de cada `git push`, GitHub lo actualiza solo en 1 o 2 minutos.
+Para trabajar desde otro computador:
+```bash
+git clone https://github.com/salaconectandosentidos/salaconectandosentidos.github.io.git sala-sentidos
+```
 
 ---
 
@@ -110,7 +103,7 @@ El paso 2 sirve para editar. Para ver el sitio ya armado antes de subirlo, neces
    bundle install
    bundle exec jekyll serve
    ```
-3. Abre `http://localhost:4000/sala-sentidos/`.
+3. Abre `http://localhost:4000/`.
 
 Si no quieres instalar Ruby, puedes subir los cambios y revisarlos en GitHub Pages.
 

@@ -7,15 +7,15 @@
 
 backend:
   name: github
-  repo: jhonatan-vivas/sala-sentidos
+  repo: salaconectandosentidos/salaconectandosentidos.github.io
   branch: main
 
 # Usa los archivos de tu computador en lugar de GitHub (requiere "npx decap-server")
 local_backend: true
 
 locale: es
-site_url: http://localhost:4000/sala-sentidos/
-display_url: http://localhost:4000/sala-sentidos/
+site_url: https://salaconectandosentidos.github.io/
+display_url: https://salaconectandosentidos.github.io/
 
 media_folder: assets/uploads
 public_folder: /assets/uploads
