@@ -29,8 +29,21 @@ seccion: ciega
       {%- for r in cc.recursos %}
       <li class="recurso">
         <span class="recurso__tipo">{{ r.tipo }}{% if r.duracion and r.duracion != "" %} · {{ r.duracion }}{% endif %}</span>
-        <h3 class="titulo-4">{% if r.url and r.url != "" %}<a href="{{ r.url }}" target="_blank" rel="noopener">{{ r.titulo }}<span class="sr"> (abre en otra pestaña)</span></a>{% else %}{{ r.titulo }} <span class="texto-suave">(pendiente)</span>{% endif %}</h3>
-        {%- if r.descripcion and r.descripcion != "" %}<p>{{ r.descripcion }}</p>{% endif %}
+        {%- comment -%} Solo los tipos que son un archivo o enlace avisan si falta el enlace. {%- endcomment -%}
+        {%- assign tipos_con_enlace = "Video con audiodescripción|Audio|Documento accesible|Enlace" | split: "|" %}
+        <h3 class="titulo-4">{% if r.url and r.url != "" %}<a href="{{ r.url }}" target="_blank" rel="noopener">{{ r.titulo }}<span class="sr"> (abre en otra pestaña)</span></a>{% else %}{{ r.titulo }}{% if tipos_con_enlace contains r.tipo %} <span class="texto-suave">(enlace pendiente)</span>{% endif %}{% endif %}</h3>
+        {%- if r.descripcion and r.descripcion != "" %}
+        <div class="recurso__texto">
+          {%- assign lineas = r.descripcion | strip | newline_to_br | split: "<br />" %}
+          {%- for l in lineas %}
+          {%- assign t = l | strip %}
+          {%- if t != "" %}
+          {%- assign t = t | escape | replace_first: "Mito:", "<strong>Mito:</strong>" | replace_first: "Realidad:", "<strong>Realidad:</strong>" %}
+          <p>{{ t }}</p>
+          {%- endif %}
+          {%- endfor %}
+        </div>
+        {%- endif %}
       </li>
       {%- endfor %}
     </ul>
