@@ -1,12 +1,11 @@
 bienvenida_video: ""
-bienvenida_texto: La Comunidad Sorda es una comunidad lingüística y cultural. Su
-  lengua, la Lengua de Señas Colombiana (LSC), está reconocida en Colombia como
-  lengua propia de las personas Sordas y es la base de su identidad, su historia
-  y su forma de comprender el mundo. En este espacio encontrarás videos de
-  curiosidades, cultura, historia y vida universitaria, además del podcast
-  «Historias que se señan». Todo está en LSC con su texto en español, para que
-  personas sordas y oyentes se acerquen a la cultura Sorda y construyamos juntos
-  una universidad más accesible.
+bienvenida_texto: >-
+  La Comunidad Sorda es una comunidad lingüística y cultural. Su lengua, la
+  Lengua de Señas Colombiana (LSC), está reconocida en Colombia como lengua
+  propia de las personas Sordas y es la base de su identidad, su historia y su
+  forma de comprender el mundo. 
+
+  En este espacio encontrarás videos de curiosidades, cultura, historia y vida universitaria, además del podcast «Historias que se señan». Todo está en LSC con su texto en español, para que personas sordas y oyentes se acerquen a la cultura Sorda y construyamos juntos una universidad más accesible.
 categorias:
   - Curiosidades
   - Cultura Sorda
