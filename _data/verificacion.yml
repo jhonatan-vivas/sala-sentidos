@@ -2,14 +2,14 @@
 # El código QR se genera solo a partir del enlace de cada formulario,
 # así el botón y el QR siempre llevan al mismo destino.
 video: ""
-texto: "[Texto en español equivalente al video: qué es el formulario, para qué se usan las respuestas y cuánto tiempo toma.]"
+texto: "En la Sala Conectando Sentidos queremos que la interpretación LSC – español responda a lo que cada clase necesita. Por eso te invitamos a contarnos cómo fue el servicio que recibiste: si entendiste la clase, si pudiste ver bien al intérprete y si tu voz se escuchó cuando participaste. Tus respuestas nos ayudan a reconocer lo que funciona y a mejorar lo que hace falta. No evaluamos tu aprendizaje ni el trabajo del docente: valoramos el servicio. Responder toma pocos minutos y es voluntario."
 
 estudiante:
   url: ""
-  descripcion: Recibiste interpretación en una clase, tutoría o actividad.
+  descripcion: "Recibiste interpretación en una clase, tutoría, sustentación o evento. Puedes responder en LSC (con video) o por escrito."
 docente:
   url: ""
-  descripcion: Tuviste intérprete en tu clase o espacio académico.
+  descripcion: "Tuviste intérprete en tu clase o espacio académico. Cuéntanos cómo fue la coordinación previa y la fluidez de la sesión."
 
-privacidad: "[Aviso de privacidad y tratamiento de datos definido por la UTP; indicar si las respuestas son anónimas.]"
+privacidad: "Tu participación es voluntaria y tus respuestas son confidenciales. No afectan tu relación con el intérprete, con el docente ni con la asignatura, y solo se usan para mejorar el servicio. Los datos se tratan según la Ley 1581 de 2012 de protección de datos personales y la política de tratamiento de datos de la UTP."
 plataforma: "[plataforma institucional]"
