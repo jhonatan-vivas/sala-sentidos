@@ -16,7 +16,7 @@ scripts:
     </div>
     <div class="bilingue__texto">
       <h1 id="t-curso" class="titulo-1">Curso de Lengua de Señas Colombiana</h1>
-      <p class="texto-grande">{{ cu.bienvenida_texto }}</p>
+      {% include parrafos.html texto=cu.bienvenida_texto clase="texto-grande" %}
     </div>
   </section>
 </div>
@@ -41,7 +41,7 @@ scripts:
     {%- assign clases = site.clases | where: "nivel", n_txt | where_exp: "c", "c.publicado != false" | sort: "numero" %}
     {%- assign info = cu.niveles | where: "numero", n_txt | first %}
     <div class="panel-nivel" role="tabpanel" id="panel-nivel-{{ n }}" aria-labelledby="tab-nivel-{{ n }}" data-panel-nivel="{{ n }}"{% if n != 1 %} hidden{% endif %}>
-      {%- if info.descripcion and info.descripcion != "" %}<p class="texto-grande panel-nivel__descripcion">{{ info.descripcion }}</p>{% endif %}
+      {%- if info.descripcion and info.descripcion != "" %}{% include parrafos.html texto=info.descripcion clase="texto-grande panel-nivel__descripcion" %}{% endif %}
       {%- if clases.size == 0 %}
       <p class="aviso">El Nivel {{ n }} todavía no tiene clases publicadas.</p>
       {%- else %}

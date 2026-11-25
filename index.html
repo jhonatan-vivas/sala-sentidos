@@ -8,7 +8,7 @@ seccion: inicio
   <div class="contenedor heroe">
     <div class="heroe__texto">
       <h1 class="titulo-1 titulo-1--grande">{{ s.nombre }}</h1>
-      <p class="texto-grande">{{ s.descripcion }}</p>
+      {% include parrafos.html texto=s.descripcion clase="texto-grande" %}
       <div class="botones">
         <a class="boton" href="#sala">Conoce la Sala</a>
         <a class="boton boton--borde" href="{{ '/curso/' | relative_url }}">Ir al curso de LSC</a>
@@ -28,7 +28,7 @@ seccion: inicio
       </div>
       <div class="bilingue__texto">
         <h2 id="t-sala" class="titulo-2 color-azul">¿Qué es la {{ s.nombre }}?</h2>
-        <p class="texto-grande">{{ s.texto_que_es }}</p>
+        {% include parrafos.html texto=s.texto_que_es clase="texto-grande" %}
         <dl class="datos">
           <div class="dato"><dt>Ubicación</dt><dd>{{ s.ubicacion }}</dd></div>
           <div class="dato"><dt>Contacto</dt><dd>{{ s.correo }}</dd></div>
@@ -64,7 +64,7 @@ seccion: inicio
         </div>
         <div class="bilingue__texto">
           <h3 class="titulo-3">Talleres de formación</h3>
-          <p class="texto-grande">{{ sala.talleres.texto }}</p>
+          {% include parrafos.html texto=sala.talleres.texto clase="texto-grande" %}
         </div>
       </div>
       <ul class="talleres__lista">

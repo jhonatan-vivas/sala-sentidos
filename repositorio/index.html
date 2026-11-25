@@ -18,7 +18,8 @@ scripts:
     </div>
     <div class="bilingue__texto">
       <h1 id="t-repo" class="titulo-1">Repositorio de señas</h1>
-      <p class="texto-grande">{{ ar.bienvenida_texto | default: "Señas de términos académicos organizadas por área y subárea. Cada seña tiene su video y el contexto en que se usa." }}</p>
+      {%- assign repo_texto = ar.bienvenida_texto | default: "Señas de términos académicos organizadas por área y subárea. Cada seña tiene su video y el contexto en que se usa." %}
+      {% include parrafos.html texto=repo_texto clase="texto-grande" %}
       <form class="buscador buscador--grande" role="search" data-repo-buscar>
         <label class="sr" for="q-senas">Buscar una seña por palabra en español</label>
         <input id="q-senas" type="search" placeholder="Busca una palabra: derivada, voltaje…" autocomplete="off">

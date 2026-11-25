@@ -13,7 +13,7 @@ seccion: curso
   <div class="contenedor seccion-intro">
     <h1 class="titulo-1">{{ page.title }}</h1>
     {%- if info.descripcion and info.descripcion != "" %}
-    <p class="texto-grande">{{ info.descripcion }}</p>
+    {% include parrafos.html texto=info.descripcion clase="texto-grande" %}
     {%- endif %}
     <p class="texto-suave">{{ clases | size }} {% if clases.size == 1 %}clase{% else %}clases{% endif %}</p>
   </div>

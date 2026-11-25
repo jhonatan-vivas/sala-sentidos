@@ -22,7 +22,7 @@ roles:
     </div>
     <div class="bilingue__texto">
       <h1 id="t-ver" class="titulo-1">Verificación del servicio de interpretación</h1>
-      <p class="texto-grande">{{ vf.texto }}</p>
+      {% include parrafos.html texto=vf.texto clase="texto-grande" %}
     </div>
   </div>
 </section>
@@ -36,7 +36,7 @@ roles:
       <article class="rol" aria-labelledby="t-{{ r.clave }}">
         <div class="rol__texto">
           <h3 id="t-{{ r.clave }}" class="titulo-3 color-azul">{{ r.titulo }}</h3>
-          <p>{{ datos.descripcion }}</p>
+          {% include parrafos.html texto=datos.descripcion %}
           {%- if datos.url and datos.url != "" %}
           <a class="boton boton--grande" href="{{ datos.url }}" target="_blank" rel="noopener">Ir al formulario de {{ r.clave }}s <span aria-hidden="true">↗</span><span class="sr">(abre en otra pestaña)</span></a>
           {%- else %}

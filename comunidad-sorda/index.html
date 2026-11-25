@@ -11,7 +11,7 @@ seccion: sorda
   <div class="contenedor bilingue bilingue--heroe">
     <div class="bilingue__texto">
       <h1 id="t-cs" class="titulo-1">Comunidad Sorda</h1>
-      <p class="texto-grande">{{ cs.bienvenida_texto }}</p>
+      {% include parrafos.html texto=cs.bienvenida_texto clase="texto-grande" %}
       <a class="boton boton--blanco" href="{{ '/repositorio/' | relative_url }}">Ir al repositorio de señas →</a>
     </div>
     <div class="bilingue__video">
@@ -53,7 +53,7 @@ seccion: sorda
     <div class="dos-partes__intro">
       <h2 id="t-podcast" class="titulo-2 color-azul">Podcast en LSC</h2>
       <p class="podcast__nombre">{{ cs.podcast.nombre }}</p>
-      <p>{{ cs.podcast.descripcion }}</p>
+      {% include parrafos.html texto=cs.podcast.descripcion %}
     </div>
     <ol class="episodios">
       {%- for e in cs.podcast.episodios reversed %}

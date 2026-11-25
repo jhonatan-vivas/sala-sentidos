@@ -10,7 +10,7 @@ seccion: ciega
   </div>
   <div class="contenedor angosto pila">
     <h1 id="t-cc" class="titulo-1">Comunidad ciega</h1>
-    <p class="texto-grande">{{ cc.texto }}</p>
+    {% include parrafos.html texto=cc.texto clase="texto-grande" %}
     <div class="botones">
       <button type="button" class="boton boton--grande" data-a11y="escuchar" aria-pressed="false">
         <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M19 5a10 10 0 0 1 0 14"/></svg>

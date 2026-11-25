@@ -1,0 +1,12 @@
+{%- comment -%}
+  Convierte un texto en párrafos: cada salto de línea que se escriba en el panel
+  (o en el .yml) crea un párrafo nuevo, con su espacio.
+  Uso: {% include parrafos.html texto=variable clase="texto-grande" %}
+{%- endcomment -%}
+{%- assign _lineas = include.texto | strip | newline_to_br | split: "<br />" -%}
+{%- for _l in _lineas -%}
+{%- assign _t = _l | strip -%}
+{%- if _t != "" %}
+<p{% if include.clase %} class="{{ include.clase }}"{% endif %}>{{ _t }}</p>
+{%- endif -%}
+{%- endfor -%}
