@@ -1,11 +1,5 @@
 bienvenida_video: ""
-bienvenida_texto: En este espacio descubrirás una lengua visual, corporal y
-  espacial que representa la identidad y la riqueza cultural de la comunidad
-  sorda colombiana. A través de contenidos y ejercicios prácticos, desarrollarás
-  progresivamente habilidades comunicativas que te permitirán acercarte a nuevas
-  formas de interacción y contribuir a la construcción de entornos más
-  accesibles e incluyentes. ¡Anímate a aprender y comunicarte de una manera
-  diferente!
+bienvenida_texto: "En este curso aprenderás las bases de la Lengua de Señas Colombiana (LSC), la lengua propia de la Comunidad Sorda del país: una lengua visual, corporal y espacial, con su propia gramática. Está organizado en cuatro niveles y en cada clase encontrarás los videos en LSC con el vocabulario correspondiente. Aprender LSC es también acercarte a la cultura Sorda y aportar a una universidad donde todas las personas puedan comunicarse."
 niveles:
   - numero: 1
     descripcion: ""
