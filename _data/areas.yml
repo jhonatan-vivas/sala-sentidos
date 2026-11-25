@@ -1,6 +1,7 @@
 # Áreas y subáreas del repositorio de señas. Agrega las que necesites:
 # aparecerán solas en el menú lateral del repositorio.
 video_bienvenida: ""
+bienvenida_texto: "Señas de términos académicos organizadas por área y subárea. Cada seña tiene su video y el contexto en que se usa."
 areas:
   - nombre: Ingeniería
     subareas:

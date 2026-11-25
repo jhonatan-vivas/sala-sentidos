@@ -65,7 +65,7 @@ collections:
   - name: senas
     label: "Repositorio · Señas"
     label_singular: Seña
-    description: "Las áreas y subáreas se administran en Configuración › Áreas del repositorio."
+    description: "Las áreas y subáreas se administran en Secciones › Repositorio de señas."
     folder: _senas
     extension: md
     format: frontmatter
@@ -88,7 +88,7 @@ collections:
         search_fields: ["areas.*.nombre"]
         value_field: "areas.*.nombre"
         display_fields: ["areas.*.nombre"]
-      - { label: "Subárea", name: subarea, widget: string, hint: "Escríbela igual que en Configuración › Áreas del repositorio (ej.: Cálculo)." }
+      - { label: "Subárea", name: subarea, widget: string, hint: "Escríbela igual que en Secciones › Repositorio de señas (ej.: Cálculo)." }
       - { label: "Video de la seña (enlace o ID de YouTube)", name: youtube, widget: string, required: false }
       - { label: "Contexto de uso", name: contexto, widget: text, required: false }
       - { label: "Variantes y notas", name: variantes, widget: text, required: false }
@@ -147,6 +147,21 @@ collections:
                   - { label: "Invitado/a", name: invitado, widget: string, required: false }
                   - { label: "Enlace o ID de YouTube", name: youtube, widget: string, required: false }
                   - { label: "Duración", name: duracion, widget: string, required: false }
+
+      - label: "Repositorio de señas · Bienvenida y áreas"
+        name: areas
+        file: _data/areas.yml
+        fields:
+          - { label: "Video «Cómo usar el repositorio» (YouTube)", name: video_bienvenida, widget: string, required: false }
+          - { label: "Texto de bienvenida en español", name: bienvenida_texto, widget: text }
+          - label: "Áreas"
+            name: areas
+            widget: list
+            label_singular: área
+            summary: "{{fields.nombre}}"
+            fields:
+              - { label: "Nombre del área", name: nombre, widget: string, hint: "Ej.: Ingeniería, Licenciaturas, Ciencias de la Salud…" }
+              - { label: "Subáreas", name: subareas, widget: list, hint: "Ej.: Matemáticas, Cálculo, Electrónica" }
 
       - label: "Comunidad ciega"
         name: comunidad_ciega
@@ -283,16 +298,3 @@ collections:
               - { label: "Mañana", name: manana, widget: string, required: false }
               - { label: "Tarde", name: tarde, widget: string, required: false }
 
-      - label: "Áreas del repositorio"
-        name: areas
-        file: _data/areas.yml
-        fields:
-          - { label: "Video «Cómo usar el repositorio» (YouTube)", name: video_bienvenida, widget: string, required: false }
-          - label: "Áreas"
-            name: areas
-            widget: list
-            label_singular: área
-            summary: "{{fields.nombre}}"
-            fields:
-              - { label: "Nombre del área", name: nombre, widget: string, hint: "Ej.: Ingeniería, Licenciaturas, Ciencias de la Salud…" }
-              - { label: "Subáreas", name: subareas, widget: list, hint: "Ej.: Matemáticas, Cálculo, Electrónica" }

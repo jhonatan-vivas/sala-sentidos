@@ -62,7 +62,7 @@ El panel es una página con formularios. Lo que llenas se guarda directamente en
 | Configuración › Menú | `_data/menu.yml` | Texto de cada opción y su clip de seña. |
 | Configuración › Equipo | `_data/equipo.yml` | Personas, rol, grupo, foto y presentación en LSC. |
 | Configuración › Horarios | `_data/horarios.yml` | Horarios y aviso de cambios. |
-| Configuración › Áreas del repositorio | `_data/areas.yml` | Áreas (Ingeniería, Licenciaturas…) y sus subáreas. |
+| Secciones › Repositorio de señas | `_data/areas.yml` | Video y texto de bienvenida, áreas (Ingeniería, Licenciaturas…) y sus subáreas. |
 
 ---
 
@@ -85,7 +85,7 @@ assets/uploads/        otros archivos que subas desde el panel
 ## 4. Tareas frecuentes
 
 - **Agregar una clase:** *Curso · Clases › Nueva clase*. Escribe el nivel (1–4) y el número de la clase, que define el orden. Agrega uno o varios videos. Si desmarcas *Publicada*, la clase se oculta sin borrarla.
-- **Agregar un área al repositorio** (por ejemplo, Ciencias de la Salud): en *Configuración › Áreas del repositorio* agrega el área y sus subáreas. Luego crea las señas eligiendo esa área. El menú lateral del repositorio se actualiza solo.
+- **Agregar un área al repositorio** (por ejemplo, Ciencias de la Salud): en *Secciones › Repositorio de señas* agrega el área y sus subáreas. Luego crea las señas eligiendo esa área. El menú lateral del repositorio se actualiza solo.
 - **Agregar una persona al equipo:** *Configuración › Equipo*. Las personas con el mismo *Grupo* aparecen juntas.
 - **Anunciar un cambio de horario:** *Configuración › Horarios › Aviso*.
 - **Enlace directo a una seña:** `…/repositorio/#derivada` (el nombre del archivo de la seña).
