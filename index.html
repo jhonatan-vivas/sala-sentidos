@@ -57,13 +57,15 @@ seccion: inicio
     {%- endif %}
 
     {%- if sala.talleres %}
+    {%- assign talleres_titulo = sala.talleres.titulo | default: "Talleres de formación" %}
+    {%- assign talleres_video_titulo = talleres_titulo | append: ", en LSC" %}
     <div class="pila">
       <div class="bilingue bilingue--subseccion">
         <div class="bilingue__video">
-          {% include video.html id=sala.talleres.video titulo="Talleres de formación, en LSC" %}
+          {% include video.html id=sala.talleres.video titulo=talleres_video_titulo %}
         </div>
         <div class="bilingue__texto">
-          <h3 class="titulo-3">Talleres de formación</h3>
+          <h3 class="titulo-3">{{ talleres_titulo }}</h3>
           {% include parrafos.html texto=sala.talleres.texto clase="texto-grande" %}
         </div>
       </div>

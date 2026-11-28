@@ -53,7 +53,8 @@ espacio_sensorial:
   - Menos estrés y ansiedad
 
 talleres:
-  video: ""
+  titulo: "Talleres de formación"
+  video: "https://youtu.be/vEKSKDJJixc"
   texto: "La Sala ofrece talleres de sensibilización en Lengua de Señas Colombiana y en sistema braille, para que la comunidad universitaria se acerque a otras formas de comunicación accesible. Son cursos de 40 horas por semestre."
   items:
     - titulo: Taller de Lengua de Señas Colombiana

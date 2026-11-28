@@ -242,6 +242,7 @@ collections:
             name: talleres
             widget: object
             fields:
+              - { label: "Título de la sección", name: titulo, widget: string, hint: "Ej.: Cursos de formación" }
               - { label: "Video en LSC (YouTube)", name: video, widget: string, required: false }
               - { label: "Texto en español", name: texto, widget: text }
               - label: "Talleres"
